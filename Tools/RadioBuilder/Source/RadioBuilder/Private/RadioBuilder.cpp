@@ -1,4 +1,26 @@
 #include "CoreMinimal.h"
+#include "MeshDescription.h"
+#include "StaticMeshAttributes.h"
+#include "UserDefinedStructure/UserDefinedStructEditorData.h"
+#include "Engine/PointLight.h"
+#include "Components/TextRenderComponent.h"
+#include "ShaderCompiler.h"
+#include "Editor/EditorPerformanceSettings.h"
+#include "Engine/InheritableComponentHandler.h"
+#include "Engine/UserDefinedStruct.h"
+#include "Engine/DataTable.h"
+#include "Kismet2/StructureEditorUtils.h"
+#include "K2Node_CallParentFunction.h"
+#include "K2Node_GetDataTableRow.h"
+#include "K2Node_BreakStruct.h"
+#include "PhysicsEngine/BodySetup.h"
+#include "Materials/MaterialExpressionTextureSampleParameter2D.h"
+#include "Camera/CameraActor.h"
+#include "Components/ChildActorComponent.h"
+
+#include "Factories/FbxImportUI.h"
+#include "Factories/FbxStaticMeshImportData.h"
+#include "Kismet2/CompilerResultsLog.h"
 #include "HAL/FileManager.h"
 #include "Audio.h"
 #include "Engine/Texture2D.h"
@@ -135,7 +157,10 @@ UTextBlock* Label(UCanvasPanel* Canvas,const TCHAR* Name,FString Value,float X,f
 #include "RadioFinal.inl"
 #include "MenuFinal.inl"
 #include "MenuVerify.inl"
+#include "StationIntegration.inl"
+#include "StationBuild.inl"
+#include "StationVerify.inl"
 class FRadioBuilderModule : public IModuleInterface {
-public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("MenuArtworkFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixSlotArtwork();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuMediaFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixMedia();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return MenuVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuFinal")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioLiveVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return FinalRadio::VerifyLivePIE();}),.1f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
+public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("StationPolish")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationBuild::Polish();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationRig")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationBuild::AssembleRig();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return StationVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("StationBuild")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationBuild::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationImport")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationIntegration::ImportModels();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationInspect")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationIntegration::Inspect();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuArtworkFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixSlotArtwork();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuMediaFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixMedia();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return MenuVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuFinal")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioLiveVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return FinalRadio::VerifyLivePIE();}),.1f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
 };
 IMPLEMENT_MODULE(FRadioBuilderModule,RadioBuilder)

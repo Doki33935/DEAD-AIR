@@ -8,3 +8,7 @@ nto_dead_air/Content/Movies/*.mp4 filter=lfs diff=lfs merge=lfs -text
 Tools/MenuBuilder/Art/*.png filter=lfs diff=lfs merge=lfs -text
 Tools/MenuBuilder/Art/*.mp4 filter=lfs diff=lfs merge=lfs -text
 Tools/MenuBuilder/Fonts/*.ttf filter=lfs diff=lfs merge=lfs -text
+
+# Integrated desk and deck authoring sources.
+nto_dead_air/Content/StationIntegration/** filter=lfs diff=lfs merge=lfs -text
+Tools/StationIntegration/SourceArt/*.fbx filter=lfs diff=lfs merge=lfs -text
