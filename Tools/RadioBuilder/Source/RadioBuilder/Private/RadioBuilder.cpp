@@ -1,0 +1,109 @@
+#include "CoreMinimal.h"
+#include "Materials/Material.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Materials/MaterialExpressionConstant.h"
+#include "Materials/MaterialExpressionConstant3Vector.h"
+#include "Materials/MaterialExpressionTextureCoordinate.h"
+#include "Materials/MaterialExpressionComponentMask.h"
+#include "Materials/MaterialExpressionTime.h"
+#include "Materials/MaterialExpressionScalarParameter.h"
+#include "Materials/MaterialExpressionAdd.h"
+#include "Materials/MaterialExpressionMultiply.h"
+#include "Materials/MaterialExpressionSubtract.h"
+#include "Materials/MaterialExpressionSine.h"
+#include "Materials/MaterialExpressionAbs.h"
+#include "Materials/MaterialExpressionClamp.h"
+#include "Materials/MaterialExpressionOneMinus.h"
+#include "Containers/Ticker.h"
+#include "EngineUtils.h"
+#include "Modules/ModuleManager.h"
+#include "Misc/CommandLine.h"
+#include "Misc/PackageName.h"
+#include "UObject/SavePackage.h"
+#include "UObject/Script.h"
+#include "Kismet2/KismetEditorUtilities.h"
+#include "Kismet2/BlueprintEditorUtils.h"
+#include "EdGraphSchema_K2.h"
+#include "K2Node_CallFunction.h"
+#include "K2Node_VariableGet.h"
+#include "K2Node_VariableSet.h"
+#include "K2Node_Event.h"
+#include "K2Node_FunctionEntry.h"
+#include "K2Node_FunctionResult.h"
+#include "K2Node_DynamicCast.h"
+#include "K2Node_ComponentBoundEvent.h"
+#include "K2Node_IfThenElse.h"
+#include "K2Node_Self.h"
+#include "Engine/Blueprint.h"
+#include "Engine/SimpleConstructionScript.h"
+#include "Engine/SCS_Node.h"
+#include "Engine/StaticMesh.h"
+#include "Engine/World.h"
+#include "Engine/DirectionalLight.h"
+#include "Engine/SkyLight.h"
+#include "Components/StaticMeshComponent.h"
+#include "Components/AudioComponent.h"
+#include "Components/PointLightComponent.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetTextLibrary.h"
+#include "Kismet/KismetStringLibrary.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
+#include "Blueprint/WidgetTree.h"
+#include "WidgetBlueprint.h"
+#include "Components/CanvasPanel.h"
+#include "Components/CanvasPanelSlot.h"
+#include "Components/Border.h"
+#include "Components/Button.h"
+#include "Components/TextBlock.h"
+#include "Components/Image.h"
+#include "Components/WidgetComponent.h"
+#include "Editor.h"
+#include "FileHelpers.h"
+#include "AssetRegistry/AssetRegistryModule.h"
+#include "AssetToolsModule.h"
+#include "AssetImportTask.h"
+#include "Sound/SoundWave.h"
+#include "GameFramework/GameModeBase.h"
+#include "GameFramework/WorldSettings.h"
+#include "Engine/StaticMeshActor.h"
+#include "Components/LightComponent.h"
+#include "Components/SkyLightComponent.h"
+#include "Components/BoxComponent.h"
+#include "K2Node_CallArrayFunction.h"
+#include "Kismet/KismetArrayLibrary.h"
+#include "Kismet/KismetInputLibrary.h"
+
+namespace RadioBuild {
+const UEdGraphSchema_K2* Schema = GetDefault<UEdGraphSchema_K2>();
+UBlueprint* Radio;
+UWidgetBlueprint* Panel;
+int32 Position=0;
+FEdGraphPinType Type(FName Cat, UObject* Obj=nullptr) { FEdGraphPinType T; T.PinCategory=Cat; T.PinSubCategoryObject=Obj; return T; }
+template<class T> T* Node(UEdGraph* G) { T* N=NewObject<T>(G); G->AddNode(N,false,false); N->CreateNewGuid(); N->NodePosX=(Position++%5)*500; N->NodePosY=(Position/5)*380; return N; }
+UEdGraphPin* Pin(UEdGraphNode* N, const TCHAR* Name) { auto P=N->FindPin(Name); if(!P) { UE_LOG(LogTemp,Error,TEXT("Missing pin %s on %s"),Name,*N->GetName()); for(auto Q:N->Pins) UE_LOG(LogTemp,Error,TEXT("  %s"),*Q->PinName.ToString()); check(P); } return P; }
+void Link(UEdGraphPin* A, UEdGraphPin* B) { check(A&&B); if(!Schema->TryCreateConnection(A,B)) { UE_LOG(LogTemp,Error,TEXT("Cannot link %s.%s -> %s.%s"),*A->GetOwningNode()->GetName(),*A->PinName.ToString(),*B->GetOwningNode()->GetName(),*B->PinName.ToString()); check(false); } }
+void Def(UEdGraphNode* N,const TCHAR* P,const FString& V) { Schema->TrySetDefaultValue(*Pin(N,P),V); }
+UK2Node_CallFunction* Call(UEdGraph* G,UClass* C,const TCHAR* Name) { auto N=Node<UK2Node_CallFunction>(G); auto F=C->FindFunctionByName(Name); check(F); N->SetFromFunction(F); N->AllocateDefaultPins(); return N; }
+UK2Node_VariableGet* Get(UEdGraph* G,FName Name,UClass* C=nullptr) { auto N=Node<UK2Node_VariableGet>(G); if(C) N->VariableReference.SetExternalMember(Name,C); else N->VariableReference.SetSelfMember(Name); N->AllocateDefaultPins(); return N; }
+UK2Node_VariableSet* Set(UEdGraph* G,FName Name) { auto N=Node<UK2Node_VariableSet>(G); N->VariableReference.SetSelfMember(Name); N->AllocateDefaultPins(); return N; }
+UEdGraph* Fun(UBlueprint* BP,FName Name,UK2Node_FunctionEntry*& Entry) { Position=0; auto G=FBlueprintEditorUtils::CreateNewGraph(BP,Name,UEdGraph::StaticClass(),UEdGraphSchema_K2::StaticClass()); FBlueprintEditorUtils::AddFunctionGraph<UClass>(BP,G,true,nullptr); Entry=nullptr; for(auto N:G->Nodes) if(auto E=Cast<UK2Node_FunctionEntry>(N)) Entry=E; check(Entry); Entry->NodePosX=-300; return G; }
+UEdGraph* Events(UBlueprint* BP) { if(BP->UbergraphPages.Num())return BP->UbergraphPages[0]; auto G=FBlueprintEditorUtils::CreateNewGraph(BP,TEXT("EventGraph"),UEdGraph::StaticClass(),UEdGraphSchema_K2::StaticClass()); FBlueprintEditorUtils::AddUbergraphPage(BP,G); return G; }
+UK2Node_Event* Event(UEdGraph* G,UClass* C,FName Name) { auto E=Node<UK2Node_Event>(G); E->EventReference.SetExternalMember(Name,C); E->bOverrideFunction=true; E->AllocateDefaultPins(); return E; }
+void Compile(UBlueprint* B) { FKismetEditorUtilities::CompileBlueprint(B); check(B->Status!=BS_Error); }
+void Save(UObject* O) { auto P=O->GetOutermost(); FSavePackageArgs A; A.TopLevelFlags=RF_Public|RF_Standalone; A.SaveFlags=SAVE_NoError; FString File=FPackageName::LongPackageNameToFilename(P->GetName(),FPackageName::GetAssetPackageExtension()); check(UPackage::SavePackage(P,O,*File,A)); }
+void Var(UBlueprint* B,FName Name,FEdGraphPinType T,FString Default) { check(FBlueprintEditorUtils::AddMemberVariable(B,Name,T,Default)); }
+USCS_Node* Component(const TCHAR* Name,UClass* Class) { auto N=Radio->SimpleConstructionScript->CreateNode(Class,Name); Radio->SimpleConstructionScript->AddNode(N); return N; }
+UEdGraphPin* RadioRef(UEdGraph* G) { return Get(G,TEXT("RadioReference"))->FindPin(TEXT("RadioReference")); }
+UEdGraphPin* Read(UEdGraph* G,FName Name) { auto N=Get(G,Name,Radio->GeneratedClass); Link(RadioRef(G),Pin(N,TEXT("self"))); return N->FindPin(Name); }
+void BindText(UWidgetBlueprint* B,UTextBlock* Text,FName Function) { FDelegateEditorBinding Bind; Bind.ObjectName=Text->GetName(); Bind.PropertyName=TEXT("Text"); Bind.FunctionName=Function; B->Bindings.Add(Bind); }
+void TextReturn(UWidgetBlueprint* B,FName Name,TFunction<UEdGraphPin*(UEdGraph*)> Make) { UK2Node_FunctionEntry* E; auto G=Fun(B,Name,E); E->AddExtraFlags(FUNC_BlueprintPure|FUNC_Const); auto R=Node<UK2Node_FunctionResult>(G); R->FunctionReference.SetSelfMember(Name); R->AllocateDefaultPins(); R->CreateUserDefinedPin(TEXT("ReturnValue"),Type(UEdGraphSchema_K2::PC_Text),EGPD_Input); Link(Pin(E,TEXT("then")),Pin(R,TEXT("execute"))); Link(Make(G),Pin(R,TEXT("ReturnValue"))); }
+UTextBlock* Label(UCanvasPanel* Canvas,const TCHAR* Name,FString Value,float X,float Y,float W,float H,int Size=24) { auto T=Panel->WidgetTree->ConstructWidget<UTextBlock>(UTextBlock::StaticClass(),Name); T->SetText(FText::FromString(Value)); auto F=T->Font; F.Size=Size; T->SetFont(F); T->SetColorAndOpacity(FSlateColor(FLinearColor(.65f,1,.55f))); auto S=Canvas->AddChildToCanvas(T); S->SetPosition(FVector2D(X,Y)); S->SetSize(FVector2D(W,H)); return T; }
+}
+#include "RadioFinal.inl"
+class FRadioBuilderModule : public IModuleInterface {
+public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
+};
+IMPLEMENT_MODULE(FRadioBuilderModule,RadioBuilder)
