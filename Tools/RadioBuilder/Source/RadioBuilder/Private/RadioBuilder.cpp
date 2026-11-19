@@ -1,4 +1,11 @@
 #include "CoreMinimal.h"
+#include "Audio.h"
+#include "Engine/Texture2D.h"
+#include "Misc/FileHelper.h"
+#include "Misc/Paths.h"
+#include "Materials/MaterialExpressionTextureSample.h"
+#include "Materials/MaterialExpressionAppendVector.h"
+#include "Materials/MaterialExpressionLinearInterpolate.h"
 #include "Materials/Material.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialExpressionConstant.h"
@@ -104,6 +111,6 @@ UTextBlock* Label(UCanvasPanel* Canvas,const TCHAR* Name,FString Value,float X,f
 }
 #include "RadioFinal.inl"
 class FRadioBuilderModule : public IModuleInterface {
-public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
+public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("RadioLiveVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return FinalRadio::VerifyLivePIE();}),.1f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
 };
 IMPLEMENT_MODULE(FRadioBuilderModule,RadioBuilder)
