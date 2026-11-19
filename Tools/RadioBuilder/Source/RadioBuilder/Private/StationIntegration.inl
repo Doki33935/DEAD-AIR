@@ -17,6 +17,9 @@ void BlueprintInfo(const TCHAR* Path){
 }
 void Inspect(){
  Report.Empty();for(auto P:{TEXT("/Game/My_content/BPI_interface.BPI_interface"),TEXT("/Game/My_content/BP_deca.BP_deca"),TEXT("/Game/My_content/Cassete.Cassete"),TEXT("/Game/My_content/test_char.test_char"),TEXT("/Game/My_content/Radio_1.Radio_1")})BlueprintInfo(P);
+
+ BlueprintInfo(TEXT("/Game/RadioExample/BP_RadioExample.BP_RadioExample"));BlueprintInfo(TEXT("/Game/RadioExample/WBP_RadioDisplay.WBP_RadioDisplay"));
+ auto InspectedPanel=LoadObject<UWidgetBlueprint>(nullptr,TEXT("/Game/RadioExample/WBP_RadioDisplay.WBP_RadioDisplay"));TArray<UWidget*> Widgets;InspectedPanel->WidgetTree->GetAllWidgets(Widgets);for(auto Widget:Widgets){Line(TEXT("WIDGET ")+Widget->GetName()+TEXT(" ")+Widget->GetClass()->GetName());if(auto Slot=Cast<UCanvasPanelSlot>(Widget->Slot))Line(FString::Printf(TEXT(" layout=%s size=%s"),*Slot->GetPosition().ToString(),*Slot->GetSize().ToString()));if(auto T=Cast<UTextBlock>(Widget))Line(TEXT(" text=")+T->GetText().ToString());}
  TArray<FAssetData> Imported;FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry")).Get().GetAssetsByPath(TEXT("/Game/StationIntegration/Art"),Imported,true);for(auto A:Imported)if(auto M=Cast<UStaticMesh>(A.GetAsset()))MeshInfo(M);auto Dir=FPaths::ProjectSavedDir()/TEXT("StationInspection");IFileManager::Get().MakeDirectory(*Dir,true);check(FFileHelper::SaveStringToFile(Report,*(Dir/TEXT("slava-blueprints.txt")),FFileHelper::EEncodingOptions::ForceUTF8WithoutBOM));UE_LOG(LogTemp,Display,TEXT("STATION INSPECTION COMPLETE"));
 }
 void ImportModels(){
