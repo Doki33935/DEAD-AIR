@@ -1,3 +1,10 @@
 # New radio sample only; do not migrate the team's existing binary history.
 nto_dead_air/Content/RadioExample/** filter=lfs diff=lfs merge=lfs -text
 Tools/RadioBuilder/Audio/*.wav filter=lfs diff=lfs merge=lfs -text
+
+# UI sample, artist sources and licensed fonts.
+nto_dead_air/Content/UI/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/Movies/*.mp4 filter=lfs diff=lfs merge=lfs -text
+Tools/MenuBuilder/Art/*.png filter=lfs diff=lfs merge=lfs -text
+Tools/MenuBuilder/Art/*.mp4 filter=lfs diff=lfs merge=lfs -text
+Tools/MenuBuilder/Fonts/*.ttf filter=lfs diff=lfs merge=lfs -text

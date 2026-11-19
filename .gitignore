@@ -8,3 +8,4 @@
 *.VC.db
 Tools/RadioBuilderBuilt/
 Tools/RadioBuilder/*.log
+nto_dead_air/Build/Windows/FileOpenOrder/

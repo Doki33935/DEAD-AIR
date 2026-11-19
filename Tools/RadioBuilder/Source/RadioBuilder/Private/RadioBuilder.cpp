@@ -1,4 +1,5 @@
 #include "CoreMinimal.h"
+#include "HAL/FileManager.h"
 #include "Audio.h"
 #include "Engine/Texture2D.h"
 #include "Misc/FileHelper.h"
@@ -68,6 +69,8 @@
 #include "Components/Image.h"
 #include "Components/WidgetComponent.h"
 #include "Editor.h"
+#include "PlayInEditorDataTypes.h"
+#include "UnrealClient.h"
 #include "FileHelpers.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "AssetToolsModule.h"
@@ -82,6 +85,26 @@
 #include "K2Node_CallArrayFunction.h"
 #include "Kismet/KismetArrayLibrary.h"
 #include "Kismet/KismetInputLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "GameFramework/SaveGame.h"
+#include "Engine/GameInstance.h"
+#include "Engine/Font.h"
+#include "Engine/FontFace.h"
+#include "Fonts/CompositeFont.h"
+#include "Sound/SoundMix.h"
+#include "Sound/SoundClass.h"
+#include "Components/WidgetSwitcher.h"
+#include "Components/ScaleBox.h"
+#include "Components/SizeBox.h"
+#include "Components/Slider.h"
+#include "Components/CheckBox.h"
+#include "Components/HorizontalBox.h"
+#include "Components/HorizontalBoxSlot.h"
+#include "Components/BorderSlot.h"
+#include "Components/ButtonSlot.h"
+#include "MediaPlayer.h"
+#include "MediaTexture.h"
+#include "FileMediaSource.h"
 
 namespace RadioBuild {
 const UEdGraphSchema_K2* Schema = GetDefault<UEdGraphSchema_K2>();
@@ -110,7 +133,9 @@ void TextReturn(UWidgetBlueprint* B,FName Name,TFunction<UEdGraphPin*(UEdGraph*)
 UTextBlock* Label(UCanvasPanel* Canvas,const TCHAR* Name,FString Value,float X,float Y,float W,float H,int Size=24) { auto T=Panel->WidgetTree->ConstructWidget<UTextBlock>(UTextBlock::StaticClass(),Name); T->SetText(FText::FromString(Value)); auto F=T->Font; F.Size=Size; T->SetFont(F); T->SetColorAndOpacity(FSlateColor(FLinearColor(.65f,1,.55f))); auto S=Canvas->AddChildToCanvas(T); S->SetPosition(FVector2D(X,Y)); S->SetSize(FVector2D(W,H)); return T; }
 }
 #include "RadioFinal.inl"
+#include "MenuFinal.inl"
+#include "MenuVerify.inl"
 class FRadioBuilderModule : public IModuleInterface {
-public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("RadioLiveVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return FinalRadio::VerifyLivePIE();}),.1f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
+public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("MenuArtworkFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixSlotArtwork();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuMediaFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixMedia();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return MenuVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuFinal")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioLiveVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return FinalRadio::VerifyLivePIE();}),.1f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
 };
 IMPLEMENT_MODULE(FRadioBuilderModule,RadioBuilder)
