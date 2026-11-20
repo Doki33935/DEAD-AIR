@@ -1,0 +1,126 @@
+{
+  "engine": "5.0.3",
+  "scope": "Isolated commandlet load and FBX export; no visual acceptance or runtime integration",
+  "models": [
+    {
+      "path": "/Game/25_Office_Desktop_Items/Models/SM_book",
+      "object_loaded": true,
+      "material_slots": 4,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 164
+    },
+    {
+      "path": "/Game/25_Office_Desktop_Items/Models/SM_business_card_stand",
+      "object_loaded": true,
+      "material_slots": 1,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 44
+    },
+    {
+      "path": "/Game/25_Office_Desktop_Items/Models/SM_computer_mouse",
+      "object_loaded": true,
+      "material_slots": 2,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 88
+    },
+    {
+      "path": "/Game/25_Office_Desktop_Items/Models/SM_document_tray",
+      "object_loaded": true,
+      "material_slots": 2,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 40
+    },
+    {
+      "path": "/Game/25_Office_Desktop_Items/Models/SM_pencil_holder",
+      "object_loaded": true,
+      "material_slots": 12,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 866
+    },
+    {
+      "path": "/Game/FreeFurniturePack/Meshes/SM_Classic_Cupboard_Door_Left",
+      "object_loaded": true,
+      "material_slots": 2,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 320
+    },
+    {
+      "path": "/Game/FreeFurniturePack/Meshes/SM_Military_Bed_2",
+      "object_loaded": true,
+      "material_slots": 3,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 10765
+    },
+    {
+      "path": "/Game/FreeFurniturePack/Meshes/SM_Modern_Office_chair",
+      "object_loaded": true,
+      "material_slots": 1,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 9100
+    },
+    {
+      "path": "/Game/FreeFurniturePack/Meshes/SM_Picture",
+      "object_loaded": true,
+      "material_slots": 2,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 84
+    },
+    {
+      "path": "/Game/Locker/Meshes/SM_locker_0001_door",
+      "object_loaded": true,
+      "material_slots": 1,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 2042
+    },
+    {
+      "path": "/Game/Locker/Meshes/SM_locker_0001_locker",
+      "object_loaded": true,
+      "material_slots": 1,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 246
+    },
+    {
+      "path": "/Game/Med_PC_Mouse/StaticMesh/SM_Med_PC_Mouse",
+      "object_loaded": true,
+      "material_slots": 1,
+      "missing_materials": 0,
+      "loaded": true,
+      "exported_fbx": true,
+      "export_errors": [],
+      "exported_triangles": 1602
+    }
+  ]
+}
