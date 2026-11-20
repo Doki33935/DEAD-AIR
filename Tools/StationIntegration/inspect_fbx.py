@@ -1,18 +1,81 @@
-"""Read FBX binary metadata without altering the supplied files."""
+"""Read FBX metadata without altering supplied binary or ASCII files."""
 import array
 import collections
 import json
 import math
+import re
 import struct
 import sys
 import zlib
 from pathlib import Path
 
 
+def read_ascii_fbx(data):
+    tokens = re.findall(r'"(?:\\.|[^"\\])*"|;[^\n]*|\n|[{}:,*]|[^\s{}:,*]+',
+                        data.decode('utf-8-sig'))
+    tokens = [t for t in tokens if not t.startswith(';')]
+    pos = 0
+
+    def scalar(token):
+        if token.startswith('"'):
+            return token[1:-1].replace('\\"', '"').replace('\\\\', '\\')
+        try:
+            return int(token)
+        except ValueError:
+            try:
+                return float(token)
+            except ValueError:
+                return token
+
+    def nodes():
+        nonlocal pos
+        result = []
+        while pos < len(tokens):
+            if tokens[pos] == '\n':
+                pos += 1
+                continue
+            if tokens[pos] == '}':
+                pos += 1
+                break
+            name = tokens[pos]
+            pos += 1
+            if tokens[pos] != ':':
+                raise ValueError('Expected FBX node colon')
+            pos += 1
+            values, sub = [], []
+            while pos < len(tokens):
+                token = tokens[pos]
+                if token in ('\n', '}'):
+                    break
+                pos += 1
+                if token == '{':
+                    sub = nodes()
+                    break
+                if token in (',', '*'):
+                    if token == ',' and pos < len(tokens) and tokens[pos] == '\n':
+                        pos += 1
+                    continue
+                values.append(scalar(token))
+            # ASCII numeric arrays wrap values in an `a` child; binary uses one array.
+            if len(sub) == 1 and sub[0]['name'] == 'a':
+                expected = values[0]
+                values = [sub[0]['values']]
+                if len(values[0]) != expected:
+                    raise ValueError('Invalid ASCII array length')
+                sub = []
+            result.append({'name': name, 'values': values, 'children': sub})
+        return result
+
+    roots = nodes()
+    header = next(n for n in roots if n['name'] == 'FBXHeaderExtension')
+    version = next(n['values'][0] for n in header['children'] if n['name'] == 'FBXVersion')
+    return version, roots
+
+
 def read_fbx(path):
     data = Path(path).read_bytes()
     if not data.startswith(b'Kaydara FBX Binary'):
-        raise ValueError('Expected binary FBX')
+        return read_ascii_fbx(data)
     version = struct.unpack_from('<I', data, 23)[0]
     wide = version >= 7500
     fmt, header = ('<QQQB', 25) if wide else ('<IIIB', 13)
