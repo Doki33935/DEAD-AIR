@@ -130,9 +130,26 @@ def main():
         raw = data
         filename = texture_dir / (hashlib.sha256(path.encode()).hexdigest()[:12] + ('.png' if image_format == 'PNG' else '.jpg'))
         filename.write_bytes(raw)
+        # UE intentionally stores BGRA bytes in an RGBA-labelled internal PNG
+        # (FTextureSource::TryDecompressPngData, Texture.cpp). A normal image
+        # importer must receive a real RGBA/RGB PNG, not that internal payload.
+        exp = next(e for e in rec['exports'] if e['class'] == 'Texture2D')
+        source = export_properties(rec, exp, (content / rec['path']).read_bytes()).get('Source', {})
+        decode = source.get('Format') == 'TSF_BGRA8' and source.get('CompressionFormat') == 'TSCF_PNG'
+        if decode:
+            image = Image.open(io.BytesIO(raw))
+            assert image.mode in ('RGB', 'RGBA'), (path, image.mode)
+            channels = image.split()
+            image = Image.merge(image.mode, [channels[2], channels[1], channels[0], *channels[3:]])
+            decoded_dir = base / 'DecodedSource'
+            decoded_dir.mkdir(exist_ok=True)
+            filename = decoded_dir / (hashlib.sha256(path.encode()).hexdigest()[:12] + '.png')
+            image.save(filename)
         roles = [k for r in recipes for k, t in r['textures'].items() if t and t.split('.')[0] == path]
         textures.append({'source': path, 'file': str(filename), 'dimensions': dimensions,
-                         'roles': roles, 'sha256': hashlib.sha256(raw).hexdigest()})
+                         'roles': roles, 'sha256': hashlib.sha256(raw).hexdigest(),
+                         'native_png_bgra': decode,
+                         'decoded_sha256': hashlib.sha256(filename.read_bytes()).hexdigest()})
     for mesh in layout['meshes']:
         rec = lookup[mesh['package']]
         if not rec['too_new_for_5_0']:

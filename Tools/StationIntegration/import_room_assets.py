@@ -18,17 +18,22 @@ def save(asset):
 for row in data['textures']:
     path, name = row['source'].rsplit('/', 1)
     tex = u.load_asset(row['source'])
-    if not tex:
+    decode_hash = row.get('decoded_sha256', '') if row.get('native_png_bgra') else ''
+    needs_decode = bool(tex and decode_hash and u.EditorAssetLibrary.get_metadata_tag(tex, 'DeadAir.SourceDecode') != decode_hash)
+    if not tex or needs_decode:
         task = u.AssetImportTask()
         task.filename = row['file']
         task.destination_path = path
         task.destination_name = name
         task.automated = True
         task.save = True
-        task.replace_existing = False
+        task.replace_existing = needs_decode
+        task.replace_existing_settings = False
         tools.import_asset_tasks([task])
         tex = u.load_asset(row['source'])
     assert isinstance(tex, u.Texture2D), row['source']
+    if decode_hash:
+        u.EditorAssetLibrary.set_metadata_tag(tex, 'DeadAir.SourceDecode', decode_hash)
     roles = ' '.join(row['roles']).lower()
     normal = 'normal' in roles or name.lower().endswith('_n')
     linear = normal or any(x in roles for x in ('roughness', 'metallic', 'ambientocclusion'))
@@ -84,7 +89,7 @@ for row in data['materials']:
     packed = samples.get('metallicroughnesstexture')
     if packed:
         link(mat, packed, 'G', u.MaterialProperty.MP_ROUGHNESS)
-        metal_factor = row['scalars'].get('MetallicFactor', 1.)
+        metal_factor = 0. if 'Cardboard_Boxes_Pack_' in row['source'] else row['scalars'].get('MetallicFactor', 1.)
         link(mat, packed if metal_factor else constant(mat, 0.), 'B' if metal_factor else '', u.MaterialProperty.MP_METALLIC)
     else:
         link(mat, samples.get('roughnesstexture') or constant(mat, .65),

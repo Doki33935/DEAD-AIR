@@ -2,7 +2,7 @@
   "engine": "5.0.3",
   "newer_editor_installed": false,
   "active_map": "/Game/StationIntegration/StationIntegrationMap",
-  "scene_mesh_actors": 52,
+  "scene_mesh_actors": 53,
   "source_unique_meshes": 36,
   "recovered_meshes": 24,
   "compatible_meshes": 12,
@@ -1337,5 +1337,448 @@
       }
     },
     "checks_total": 170
-  }
+  },
+  "room_mood": {
+    "placement": {
+      "removed_decorations": [],
+      "radio_case_centre": [
+        506,
+        414,
+        107
+      ],
+      "radio_yaw": 150,
+      "radio_uniform_scale": 1.0364960134029388,
+      "bulb_position": [
+        275.0,
+        225.0,
+        195.69547488899713
+      ],
+      "bulb_candelas": 1.25,
+      "deck_scale": 0.671049508132146,
+      "deck_centre": [
+        434.155388684801,
+        427.3791707920158,
+        94.0
+      ],
+      "cassette_socket_local_z": 15.639431635504234,
+      "cassette_tray_local_z": 3.383173257311823,
+      "transparent_windows": 2,
+      "overview_height_cm": 127.04196752
+    },
+    "corrected_bgra_png": 42,
+    "unchanged_grayscale_png": 2,
+    "unchanged_jpeg": 2,
+    "overview_world_height_cm": 127.04196752,
+    "overview_pitch": -10.5,
+    "glass_opacity": 0.025,
+    "room_saturation": 0.52,
+    "asset_checks": {
+      "passed": 53,
+      "failed": 0
+    },
+    "box_inspection_image_has_transient_test_light": true,
+    "texture_decode": [
+      {
+        "asset": "/Game/Fab/Battery_Backup_UPS/battbackup_baseColor",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "982dd4eef96e17d5560f548f0138a5750e1daaa4de230a2d5d6b4bdb04701f16",
+        "decoded_sha256": "14a3f7e52f247239da32bcb8a0c75b9b633fcf5cb005d56fb5f4b623c89f02db"
+      },
+      {
+        "asset": "/Game/Fab/Battery_Backup_UPS/battbackup_metallicRoughness",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "a6a6eff09c4b444bdefc5ec76d0bed35b786325496a40a5e95ca5d61457a461c",
+        "decoded_sha256": "41b09917a430fc64b6cd7a641d124fa36ca2e50971b36065d02b8f2965982447"
+      },
+      {
+        "asset": "/Game/Fab/Battery_Backup_UPS/battbackup_normal",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "44054e2cce60630c633cfcea6251bfdf4a560b10ce3e4563251449fade20b3b8",
+        "decoded_sha256": "a86c72217851d88289356e2f71cc2e3743026edf24a7767f479252b15c5af60d"
+      },
+      {
+        "asset": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven_texture_0",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "0aca3e82adf4eef86a75e4d1fd1759c564058fba43377949c643f62c7e00821e",
+        "decoded_sha256": "d693fa11d8179b4e1c90af1b919b681c98d0b248c278948c96981ac761c78410"
+      },
+      {
+        "asset": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven_texture_1",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "536a2b3c4aea8d35219f32bec4c05c1270ef6a0970e42c3a36410e28eae17822",
+        "decoded_sha256": "29b764d4873b6f539bbe0ed52a578e85b144ee3030d6cd2f8b6bc3b77b0aa86e"
+      },
+      {
+        "asset": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven_texture_2",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "39791ce78851b0f910c9a2efbcbf6617250042cdfa8b62f91b5723ccae93a193",
+        "decoded_sha256": "0a68c234de7b04b4029bbb3129f8db5591a6722ee10edf04bff15d6532f5ac27"
+      },
+      {
+        "asset": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_0",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "1d90de98ad368cbabe4d371f45dce88f6b6208f5eb8620c9ba430b8c09c3cb2f",
+        "decoded_sha256": "701196885dd9b96eb487a7a8174bc2c93a39f6b6f800d04ac51a793affabe4e1"
+      },
+      {
+        "asset": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_1",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "d5924898a06ff64334964ecff9e078b58c300b55cee1ba94f3715cde2c2cb948",
+        "decoded_sha256": "aea9cd31f5f0e0a255530fe43cce4f1b40595dab0e3ca8245f5b2e262dc17038"
+      },
+      {
+        "asset": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_2",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "edf8048983e86c036968f19601b4caf08043ea23b34a94ae7c70fbcb183a3cf4",
+        "decoded_sha256": "8f24abd22d04633bbba59c992957d6fbec60b22507201901bb92b33f9ff8f0bd"
+      },
+      {
+        "asset": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_3",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "919ad4283179585cf0a6f4790fb0ff471359a9c45953571c6f0c8f87fd1ef6f5",
+        "decoded_sha256": "d830305536fb36facd4fda8fcd46e3f1abab78fc3fb7a158a5d8a859c872b7ba"
+      },
+      {
+        "asset": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_4",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "3fb648d637f7977377915cf374075995002341f1e2d99cf7d57291864b67b1c1",
+        "decoded_sha256": "40de39d1ef48cad2f107f2c9a63da349b65a0f2dc016d4751690777aaf78f605"
+      },
+      {
+        "asset": "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/low_poly_vhs_tape_free_3d_model_texture_0",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "bfe32d6dba2b1711bda28b2930d24e6133fee24a1f609bcfd1443ab22a6dc1d2",
+        "decoded_sha256": "0e90c9154017746b10ed6b55746eb78008c389613fc61e43d56318948a8e1376"
+      },
+      {
+        "asset": "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/low_poly_vhs_tape_free_3d_model_texture_1",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "fbc17cc6a81cd1f2e337cd3158949a2daee4dd4f330935f41a173321a2e8c907",
+        "decoded_sha256": "0c72d22b65e4c7cbf231d9f5262dbb53dfaaa84378ab7c0fd65c76b217c10808"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/T_uewlfg2va_2K_B",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "076ec5a06b6d426e67e76d8054f3bbcf2b87faaa92e443c470cfb9cb4a6a69e4",
+        "decoded_sha256": "a2618614e01349946bd4f9926a12a9b822209e515064ab7370a60d6078dded50"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/T_uewlfg2va_2K_N",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "81479157ae12f109b9acf11887a745a0e6441c68ca2df7b560b962f5d7279769",
+        "decoded_sha256": "4e457c9575cb0619eb72024e6f2d7459223c36153f3ec7e2840ac6ab11d7858b"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/T_uewlfg2va_2K_ORM",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "233ccbcb845041061c176fb0dc2bf44cb404811ffe6ee36328dd4db1f1df8225",
+        "decoded_sha256": "d85ab029c74e2eb13ad8a72aee855792300d2a025148ec9dd05b55264490fd0a"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_B",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "941e993cf158656b3ce06d31068064a6248aec67e846a868e0010a2814e8d8f9",
+        "decoded_sha256": "2f2dd952acfa3bad438dd3fa1593c64cd77bf5035761b5d2c9806a321f3d4fe3"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_N",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "f92257717ebb101d456b5c2ee6f5f2992daa9abfa6365639a0ba5bfcfd04402a",
+        "decoded_sha256": "0e698af888006ab16ae4a1ecc047c6625bed21dd4b7504785441b5d54894e471"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_ORM",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "79d455e655b9b16bd269f9ded5c6130cd8530adf84e47acb7e19d1aaf73dc75c",
+        "decoded_sha256": "819c3933cb2e40baba18a414eacc5fe67a51fca23e3fd78ba81446c74a8fa8bc"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_T",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "b38e3de91dfb42fb4f464d501c61d999075d08459813f76ab3e83b894abdb439",
+        "decoded_sha256": "e42d8be3e610f4d0f04e002eff54ee9d0aecdd3bc99513c60d6c75d26180d12f"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/T_yghlabs_2k_B",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "cfad65164140200676aa3c26b33c149a2fed6d8ececd415914a6f55bc654f3d8",
+        "decoded_sha256": "2703c984c61d923fbabfab41ec6ebb10ea9e4f65297ea136441195d418803dc0"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/T_yghlabs_2k_N",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "b6fa65922f3a54492197cd79e5b0dac402b2e3ca75a55eaa0a8eafeaee532f25",
+        "decoded_sha256": "16d004cbdf1ef6b40873b4b5ef6a62cde0797682ec7dea73af2e06fb63d73d75"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/T_yghlabs_2k_ORM",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "0dd49acff0b1989c62706c9974ab32fc99b95525ede9c762c92891b0135f5304",
+        "decoded_sha256": "26c136c3b25e8726cace2dd31d52519a03c3f23ae5b35381d81b35730e6b123a"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_B",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "37b601f7056c273feb6bedc5d4df02400ac865c39b23c1e47dc4f48ea167deb8",
+        "decoded_sha256": "16114698354453b5846ea46ed7a371c0b268b58fb7017195c87b896dd0ebebfb"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_H",
+        "source_format": "TSF_G8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": false,
+        "input_sha256": "8c0da6800ecce6d2aa41a2e4402c71a4f96228ff31658bcdfab285d8a40a278d"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_N",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "c9bb69ca5cbb2d0eb3a9a7f0542d6aa5fdab90b089b4dc383f35ab7a5747d8d0",
+        "decoded_sha256": "44e438a47190896d5e1db2371fbc4c90a68bfc4fd319e24d4e2f3a274a8c2493"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_ORM",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "61a68f8cbb872a399fc11b742f623e4fb03246e0135ad63f4ed286118f705c82",
+        "decoded_sha256": "53b0b7bb63ec5467ea41cc08670e36237c45a92556e7a92446e8ad099b49cf5b"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/T_yfnkcdi_2k_B",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "0cadcd69973a50440d4eb39ba0a963165639085ff61700446eb891408871914f",
+        "decoded_sha256": "e8f6159dbf6332230402335f14144f0518a37a6b4b06a49efd7c34038b3c1b10"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/T_yfnkcdi_2k_N",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "e3c97198e006ddb6ebb67b8175ca191f304667bf8549b03b07ea511ce770d8b8",
+        "decoded_sha256": "d40690bc4375ff244302a4b80a90151174a0dde22a79896b3cf9183cbf66e59f"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/T_yfnkcdi_2k_ORM",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "12262e7bb9e677d6dc46be74f6ad0cf8f70cae3023017b6919dc30217c93ea71",
+        "decoded_sha256": "3a8f04107b4d96db6c0db455ba9f1ae682af6876222d10e9a6d2c2efd6263106"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_B",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "50112688bed07ae465c75a33e27eec7e757e60f8325d68253b99029bf34a8100",
+        "decoded_sha256": "bc0ba96c87063813345b71642e6733ff3c09900312842e7034dd25b262577c62"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_N",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "271f93c39dee04c8394b4dd731f7a0426e120112b698fc7583ef947dee1dad82",
+        "decoded_sha256": "8a4ca01b6b5f5f6d0ae3d79121719336eaefa8d20095894a701409c610c2aee5"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_ORM",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "eb454eb5ef5891c721a18fbf2ebab022c2afefa4f09ed95d868d02ab98934cf2",
+        "decoded_sha256": "492de9d741a93ae7546201f5e9f40cfffe85fc8d20504426817eec69ef20d0d0"
+      },
+      {
+        "asset": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_T",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "18bc216a5201a537946beb1fa17feb0a3ed321fc12f330726d88f1dddf06a159",
+        "decoded_sha256": "6c77bae9ea75a5cb2a2a81de3deb6e85c453a2c559f37e2caeb88dfe09d770a2"
+      },
+      {
+        "asset": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad_texture_0",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "8d38b32f50feb57b2cb0ce519eaac01664470c8ccf891ddbd0c815a5f8d017e7",
+        "decoded_sha256": "fc3023ea96e87ba70a3fd11ae11616b7bf380e78da9b1007d8a28856b24939c5"
+      },
+      {
+        "asset": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad_texture_1",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "3485724cda500766c7b3741b7cb654d10609f2ad84d83f4b28886a42ca4312bb",
+        "decoded_sha256": "5983620363ce1b8ffe222a52327d31acd229b295b55449436dae2aec188306f9"
+      },
+      {
+        "asset": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad_texture_2",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "6c45a16a50d302e910f4e6b731a74bf63249ae8576c541b44a7880795c6f544e",
+        "decoded_sha256": "21fde68577b569430999dc8fcd36ccd9ed0d43812de02f61e07289d2a71bfea2"
+      },
+      {
+        "asset": "/Game/FirstPerson/Blueprints/Old_Log_Wall_thjwbdoaw_2K_BaseColor",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_JPEG",
+        "swap_red_blue": false,
+        "input_sha256": "a843a8f1b6072df5edbca52ab0119cb7cea3697546d6f86bf6caedcb99f91fea"
+      },
+      {
+        "asset": "/Game/FirstPerson/Blueprints/Old_Log_Wall_ti5teabbw_2K_BaseColor",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_JPEG",
+        "swap_red_blue": false,
+        "input_sha256": "801585c8433d30c8f22d16a999ed850771f0fe75cf9d6a6dc6c9f782179f33c5"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/DuctTape_a",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "8f7b1e2cac7311397883f7be183381d55eae8dc1a5a632f498f3d369cc3d1075",
+        "decoded_sha256": "bec6138ce6a16fc9f996a87fbf0477b1ca020de015cbdd150e24b9be4e371fd3"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/DuctTape_c",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "69152d0fbf541d73ab9e765b2ff5adee426d1df7342733ef67144132bf38ce95",
+        "decoded_sha256": "71c7fdf167c0d9b9d40483995884ae22b5636022201facb8fb5a0bb6dc164371"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/DuctTape_n",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "e114b89c0b088c22ee745073859bca55f12f397f22903d4345d59ecbb1bba101",
+        "decoded_sha256": "b8e39abb0bc1b699a5eb94f06b02481a04867f96e933b1ca1391c4b95ca610b3"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/Grunge",
+        "source_format": "TSF_G8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": false,
+        "input_sha256": "b431325cfab2b63b72912538b6a52f13df4cce65da69af38b1b02f8005eae6f0"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/PillBottle_a",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "975949bc9c6d1cd73114ece2b5ea768f154a4ae5ebc5606182d573d173aa2116",
+        "decoded_sha256": "59ce21c416cb5d130914e991d19bf155a8bd7b625b08776a0e9847fdf474e1f9"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/PillBottle_c",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "520c1381e3fdbdfaffd30a0bb8d84ac89944c9929af011e62365f2e40199d202",
+        "decoded_sha256": "9b776c92b0ecab38137128ecd120e4353292bb0ef17e572982a79bfe9256a199"
+      },
+      {
+        "asset": "/Game/SurvivalProps/Textures/PillBottle_n",
+        "source_format": "TSF_BGRA8",
+        "compression": "TSCF_PNG",
+        "swap_red_blue": true,
+        "input_sha256": "1c834c7a5c500c93307dcea00cc4f2b6fe4c897daf6273696bc05b0171b4be3b",
+        "decoded_sha256": "2ef8093b78ac4455858e115afda75fdcf4efb85a7f01e6d3094c315a9f5ba749"
+      }
+    ],
+    "windows_development_cook": "success",
+    "package_launches": [
+      {
+        "map": "/Game/UI/MainMenuMap",
+        "seconds": 12,
+        "exit_code": 0
+      },
+      {
+        "map": "/Game/StationIntegration/StationIntegrationMap",
+        "seconds": 12,
+        "exit_code": 0
+      }
+    ],
+    "pie_checks": {
+      "room_polish": {
+        "passed": 16,
+        "failed": 0
+      },
+      "cassette_motion": {
+        "passed": 29,
+        "failed": 0
+      },
+      "receiver": {
+        "passed": 32,
+        "failed": 0
+      },
+      "transport": {
+        "passed": 55,
+        "failed": 0
+      },
+      "menu": {
+        "passed": 38,
+        "failed": 0
+      }
+    },
+    "cursor_test_scope": "Production recenter handler in PIE; not unattended physical OS cursor tracking"
+  },
+  "current_revision": "room_mood"
 }

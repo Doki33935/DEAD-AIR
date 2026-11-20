@@ -15,13 +15,19 @@ bool Preview(){
  AActor *Rig=nullptr,*Radio=nullptr,*Deck=nullptr;
  for(TActorIterator<AActor> I(W);I;++I){if(I->GetClass()->GetName()==TEXT("BP_DeskWorkstationRig_C"))Rig=*I;if(I->GetClass()->GetName()==TEXT("BP_RadioIntegrated_C"))Radio=*I;if(I->GetClass()->GetName()==TEXT("BP_TapeDeckIntegrated_C"))Deck=*I;}
  if(!Rig||!Radio||!Deck)return true;
- auto Shot=[&](const TCHAR* Name){auto Dir=FPaths::ProjectSavedDir()/TEXT("RoomImport/Checks");IFileManager::Get().MakeDirectory(*Dir,true);FScreenshotRequest::RequestScreenshot(Dir/Name,true,false);};
+ auto Shot=[&](const TCHAR* Name){auto Dir=FPaths::ProjectSavedDir()/TEXT("RoomImport/Checks");IFileManager::Get().MakeDirectory(*Dir,true);FScreenshotRequest::RequestScreenshot(Dir/Name,false,false);};
  if(Stage==0&&W->GetTimeSeconds()>3&&(!GShaderCompilingManager||!GShaderCompilingManager->IsCompiling())){
+  // Capture the actual default overview, not the hidden desktop cursor's
+  // incidental pan position. This override exists only in this PIE review.
+  auto PC=UGameplayStatics::GetPlayerController(W,0);PC->bEnableClickEvents=false;
+  auto View=CastChecked<USceneComponent>(MenuVerify::Obj(Rig,TEXT("ViewCenter")));
+  auto BP=CastChecked<UBlueprint>(Rig->GetClass()->ClassGeneratedBy);
+  View->SetRelativeTransform(CastChecked<USceneComponent>(StationBuild::SCS(BP,TEXT("ViewCenter"))->ComponentTemplate)->GetRelativeTransform());
   int Models=0;for(TActorIterator<AStaticMeshActor> I(W);I;++I)if(I->GetActorLabel().StartsWith(TEXT("ROOM")))Models++;
   UE_LOG(LogTemp,Display,TEXT("ROOM PREVIEW actors=%d rig=%s radio=%s deck=%s"),Models,*Rig->GetActorLocation().ToString(),*Radio->GetActorLocation().ToString(),*Deck->GetActorLocation().ToString());
   Shot(TEXT("room-overview.png"));At=Now;Stage=1;return true;
  }
- if(Stage==1&&Now>At+.4){MenuVerify::Run(Rig,TEXT("FocusRadio"));At=Now;Stage=2;return true;}
+ if(Stage==1&&Now>At+.4){UGameplayStatics::GetPlayerController(W,0)->bEnableClickEvents=true;MenuVerify::Run(Rig,TEXT("FocusRadio"));At=Now;Stage=2;return true;}
  if(Stage==2&&Now>At+.8){auto C=CastChecked<UPrimitiveComponent>(MenuVerify::Obj(Radio,TEXT("Click_Power")));if(!MenuVerify::Flag(Radio,TEXT("Powered")))C->OnClicked.Broadcast(C,EKeys::LeftMouseButton);At=Now;Stage=21;return true;}
  if(Stage==21&&Now>At+.4){Shot(TEXT("room-radio.png"));At=Now;Stage=3;return true;}
  if(Stage==3&&Now>At+.4){MenuVerify::Run(Rig,TEXT("FocusDeck"));At=Now;Stage=4;return true;}
@@ -30,7 +36,12 @@ bool Preview(){
  if(Stage==6&&Now>At+.6){Shot(TEXT("room-survey.png"));At=Now;Stage=7;return true;}
  if(Stage==7&&Now>At+.4){auto Camera=Survey.Get();Camera->SetActorLocation(FVector(495,370,195));Camera->SetActorRotation((FVector(190,165,105)-Camera->GetActorLocation()).Rotation());At=Now;Stage=8;return true;}
  if(Stage==8&&Now>At+.6){Shot(TEXT("room-reverse.png"));At=Now;Stage=9;return true;}
- if(Stage==9&&Now>At+.4){UE_LOG(LogTemp,Display,TEXT("ROOM PREVIEW COMPLETE"));GEditor->RequestEndPlayMap();At=Now;Stage=99;return true;}
+ if(Stage==9&&Now>At+.4){auto Camera=Survey.Get();Camera->SetActorLocation(FVector(140,290,100));Camera->SetActorRotation((FVector(54,382,45)-Camera->GetActorLocation()).Rotation());Camera->GetCameraComponent()->SetFieldOfView(55);
+  // Inspection light is transient PIE-only, never saved in the horror room.
+  auto Inspection=W->SpawnActor<APointLight>();Inspection->SetActorLocation(FVector(95,320,120));Inspection->GetLightComponent()->SetIntensity(4);Inspection->GetLightComponent()->SetLightColor(FLinearColor::White);
+  At=Now;Stage=10;return true;}
+ if(Stage==10&&Now>At+.6){Shot(TEXT("room-box-material-check.png"));At=Now;Stage=11;return true;}
+ if(Stage==11&&Now>At+.4){UE_LOG(LogTemp,Display,TEXT("ROOM PREVIEW COMPLETE"));GEditor->RequestEndPlayMap();At=Now;Stage=99;return true;}
  return true;
 }
 void RecoverTextures(){
