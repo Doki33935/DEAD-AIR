@@ -2,7 +2,7 @@
   "engine": "5.0.3",
   "newer_editor_installed": false,
   "active_map": "/Game/StationIntegration/StationIntegrationMap",
-  "scene_mesh_actors": 55,
+  "scene_mesh_actors": 52,
   "source_unique_meshes": 36,
   "recovered_meshes": 24,
   "compatible_meshes": 12,
@@ -1077,7 +1077,9 @@
     "artifacts/room-overview.png",
     "artifacts/room-radio.png",
     "artifacts/room-deck.png",
-    "artifacts/room-reverse.png"
+    "artifacts/room-reverse.png",
+    "artifacts/room-bed-look.png",
+    "artifacts/cassette-playing.png"
   ],
   "recovered_source_geometry": [
     {
@@ -1272,5 +1274,68 @@
       "bounds": "IsValid=true, Min=(X=-99.671 Y=-99.723 Z=-75.237), Max=(X=100.329 Y=100.277 Z=183.934)",
       "groups": "Материал;"
     }
-  ]
+  ],
+  "room_polish": {
+    "cassette_model": "/Game/RoomArt/Meshes/SM_low_poly_vhs_tape_free_3d_model_248e7d",
+    "visible_playable_cassettes": 1,
+    "decorative_cassettes": 0,
+    "reel_animation": "Blueprint transport phases drive photographed hubs in M_CassetteAssetAnimated; shell remains still",
+    "removed_original_actor_labels": [
+      "ROOM — VHS_Cassette",
+      "ROOM — VHS_Cassette2",
+      "ROOM — VHS_Cassette3",
+      "ROOM — SM_computer_mouse"
+    ],
+    "retained_mouse": "/Game/Med_PC_Mouse/StaticMesh/SM_Med_PC_Mouse",
+    "radio_case_centre": [
+      506,
+      414,
+      107
+    ],
+    "radio_yaw": 150,
+    "radio_uniform_scale": 1.0364960134029388,
+    "radio_case_height_cm": 33.1678724,
+    "cassette_socket_local_z": 14.22,
+    "look_yaw_degrees": [
+      -175,
+      175
+    ],
+    "look_pitch_offset_degrees": [
+      -42,
+      42
+    ],
+    "light": {
+      "world_position": [
+        275,
+        225,
+        195.695474889
+      ],
+      "candelas": 6,
+      "desk_light_removed": true,
+      "window_fill_candelas": 0.04
+    },
+    "checks": {
+      "room_polish": {
+        "passed": 16,
+        "failed": 0
+      },
+      "cassette_motion": {
+        "passed": 29,
+        "failed": 0
+      },
+      "receiver": {
+        "passed": 32,
+        "failed": 0
+      },
+      "transport": {
+        "passed": 55,
+        "failed": 0
+      },
+      "menu": {
+        "passed": 38,
+        "failed": 0
+      }
+    },
+    "checks_total": 170
+  }
 }
