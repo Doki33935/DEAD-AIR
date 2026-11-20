@@ -1,0 +1,1276 @@
+{
+  "engine": "5.0.3",
+  "newer_editor_installed": false,
+  "active_map": "/Game/StationIntegration/StationIntegrationMap",
+  "scene_mesh_actors": 55,
+  "source_unique_meshes": 36,
+  "recovered_meshes": 24,
+  "compatible_meshes": 12,
+  "source_images": 46,
+  "rebuilt_materials": 24,
+  "meshes": [
+    {
+      "package": "/Game/25_Office_Desktop_Items/Models/SM_book",
+      "key": "SM_SM_book_ef803f",
+      "triangles": 164,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/25_Office_Desktop_Items/Models/SM_book"
+    },
+    {
+      "package": "/Game/25_Office_Desktop_Items/Models/SM_business_card_stand",
+      "key": "SM_SM_business_card_stand_ba8b1d",
+      "triangles": 44,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/25_Office_Desktop_Items/Models/SM_business_card_stand"
+    },
+    {
+      "package": "/Game/25_Office_Desktop_Items/Models/SM_computer_mouse",
+      "key": "SM_SM_computer_mouse_fcec80",
+      "triangles": 88,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/25_Office_Desktop_Items/Models/SM_computer_mouse"
+    },
+    {
+      "package": "/Game/25_Office_Desktop_Items/Models/SM_document_tray",
+      "key": "SM_SM_document_tray_87bbbf",
+      "triangles": 40,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/25_Office_Desktop_Items/Models/SM_document_tray"
+    },
+    {
+      "package": "/Game/25_Office_Desktop_Items/Models/SM_pencil_holder",
+      "key": "SM_SM_pencil_holder_9945e7",
+      "triangles": 866,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/25_Office_Desktop_Items/Models/SM_pencil_holder"
+    },
+    {
+      "package": "/Game/Fab/Battery_Backup_UPS/scene",
+      "key": "SM_scene_50c5ec",
+      "triangles": 164,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_scene_50c5ec",
+      "slots": [
+        {
+          "name": "battbackup",
+          "material": "/Game/Fab/Battery_Backup_UPS/battbackup.battbackup"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven",
+      "key": "SM_big_old_rusted_oven_a8c2ce",
+      "triangles": 17117,
+      "uv": 3,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_big_old_rusted_oven_a8c2ce",
+      "slots": [
+        {
+          "name": "big_oven_001",
+          "material": "/Game/Fab/Big_Old_Rusted_Oven/big_oven_001.big_oven_001"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Cartoon_Fridge/cartoon_fridge",
+      "key": "SM_cartoon_fridge_4c79b7",
+      "triangles": 6122,
+      "uv": 3,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_cartoon_fridge_4c79b7",
+      "slots": [
+        {
+          "name": "Fridge_Door_A",
+          "material": "/Game/Fab/Cartoon_Fridge/Fridge_Door_A.Fridge_Door_A"
+        },
+        {
+          "name": "Fridge_Door_A_001",
+          "material": "/Game/Fab/Cartoon_Fridge/Fridge_Door_A_001.Fridge_Door_A_001"
+        },
+        {
+          "name": "Fridge_A",
+          "material": "/Game/Fab/Cartoon_Fridge/Fridge_A.Fridge_A"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Headset/Headset",
+      "key": "SM_Headset_643eb9",
+      "triangles": 5464,
+      "uv": 1,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_Headset_643eb9",
+      "slots": [
+        {
+          "name": "Speaker",
+          "material": "/Game/Fab/Headset/Speaker.Speaker"
+        },
+        {
+          "name": "Mic",
+          "material": "/Game/Fab/Headset/Mic.Mic"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/low_poly_vhs_tape_free_3d_model",
+      "key": "SM_low_poly_vhs_tape_free_3d_model_248e7d",
+      "triangles": 2398,
+      "uv": 3,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_low_poly_vhs_tape_free_3d_model_248e7d",
+      "slots": [
+        {
+          "name": "Material_003",
+          "material": "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/Material_003.Material_003"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/uewlfg2va_LOD0_TIER2_000",
+      "key": "SM_uewlfg2va_LOD0_TIER2_000_87f3be",
+      "triangles": 548,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_uewlfg2va_LOD0_TIER2_000_87f3be",
+      "slots": [
+        {
+          "name": "MI_uewlfg2va",
+          "material": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/MI_uewlfg2va.MI_uewlfg2va"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/uewlfg2va_LOD0_TIER2_001",
+      "key": "SM_uewlfg2va_LOD0_TIER2_001_4d53e7",
+      "triangles": 660,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_uewlfg2va_LOD0_TIER2_001_4d53e7",
+      "slots": [
+        {
+          "name": "MI_uewlfg2va",
+          "material": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/MI_uewlfg2va.MI_uewlfg2va"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/uewlfg2va_LOD0_TIER2_002",
+      "key": "SM_uewlfg2va_LOD0_TIER2_002_3f5f12",
+      "triangles": 1052,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_uewlfg2va_LOD0_TIER2_002_3f5f12",
+      "slots": [
+        {
+          "name": "MI_uewlfg2va",
+          "material": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/MI_uewlfg2va.MI_uewlfg2va"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/uewlfg2va_LOD0_TIER2_003",
+      "key": "SM_uewlfg2va_LOD0_TIER2_003_b28065",
+      "triangles": 598,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_uewlfg2va_LOD0_TIER2_003_b28065",
+      "slots": [
+        {
+          "name": "MI_uewlfg2va",
+          "material": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/MI_uewlfg2va.MI_uewlfg2va"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/vdbmabvva_tier_2",
+      "key": "SM_vdbmabvva_tier_2_fbf245",
+      "triangles": 720,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_vdbmabvva_tier_2_fbf245",
+      "slots": [
+        {
+          "name": "MI_vdbmabvva",
+          "material": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/MI_vdbmabvva.MI_vdbmabvva"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/SM_yghlabs_tier_2",
+      "key": "SM_SM_yghlabs_tier_2_63a59e",
+      "triangles": 1836,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_SM_yghlabs_tier_2_63a59e",
+      "slots": [
+        {
+          "name": "MI_yghlabs",
+          "material": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/MI_yghlabs.MI_yghlabs"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/SM_yfkjael_tier_1",
+      "key": "SM_SM_yfkjael_tier_1_8db1e2",
+      "triangles": 3060,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_SM_yfkjael_tier_1_8db1e2",
+      "slots": [
+        {
+          "name": "MI_yfkjael",
+          "material": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/MI_yfkjael.MI_yfkjael"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/SM_yfnkcdi_tier_2",
+      "key": "SM_SM_yfnkcdi_tier_2_de0f00",
+      "triangles": 1760,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_SM_yfnkcdi_tier_2_de0f00",
+      "slots": [
+        {
+          "name": "MI_yfnkcdi",
+          "material": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/MI_yfnkcdi.MI_yfnkcdi"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad",
+      "key": "SM_single_spiral_notepad_c51708",
+      "triangles": 30342,
+      "uv": 3,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_single_spiral_notepad_c51708",
+      "slots": [
+        {
+          "name": "M_notebook_closed_clean_001",
+          "material": "/Game/Fab/Single_spiral_notepad/M_notebook_closed_clean_001.M_notebook_closed_clean_001"
+        }
+      ]
+    },
+    {
+      "package": "/Game/FreeFurniturePack/Meshes/SM_Classic_Cupboard_Door_Left",
+      "key": "SM_SM_Classic_Cupboard_Door_Left_6a7b30",
+      "triangles": 320,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/FreeFurniturePack/Meshes/SM_Classic_Cupboard_Door_Left"
+    },
+    {
+      "package": "/Game/FreeFurniturePack/Meshes/SM_Military_Bed_2",
+      "key": "SM_SM_Military_Bed_2_d29246",
+      "triangles": 10765,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/FreeFurniturePack/Meshes/SM_Military_Bed_2"
+    },
+    {
+      "package": "/Game/FreeFurniturePack/Meshes/SM_Modern_Office_chair",
+      "key": "SM_SM_Modern_Office_chair_b68988",
+      "triangles": 9100,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/FreeFurniturePack/Meshes/SM_Modern_Office_chair"
+    },
+    {
+      "package": "/Game/FreeFurniturePack/Meshes/SM_Picture",
+      "key": "SM_SM_Picture_2732d2",
+      "triangles": 84,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/FreeFurniturePack/Meshes/SM_Picture"
+    },
+    {
+      "package": "/Game/Locker/Meshes/SM_locker_0001_door",
+      "key": "SM_SM_locker_0001_door_1bbe67",
+      "triangles": 2042,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/Locker/Meshes/SM_locker_0001_door"
+    },
+    {
+      "package": "/Game/Locker/Meshes/SM_locker_0001_locker",
+      "key": "SM_SM_locker_0001_locker_7f12ef",
+      "triangles": 246,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/Locker/Meshes/SM_locker_0001_locker"
+    },
+    {
+      "package": "/Game/MAGNITOFFFFON2",
+      "key": "SM_MAGNITOFFFFON2_848ad1",
+      "triangles": 5602,
+      "uv": 3,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_MAGNITOFFFFON2_848ad1",
+      "slots": [
+        {
+          "name": "Material",
+          "material": "/Game/Material.Material"
+        },
+        {
+          "name": "Материал_003",
+          "material": "/Game/Материал_003.Материал_003"
+        },
+        {
+          "name": "Материал_002",
+          "material": "/Game/Материал_002.Материал_002"
+        },
+        {
+          "name": "Материал_001",
+          "material": "/Game/Материал_001.Материал_001"
+        },
+        {
+          "name": "Материал_004",
+          "material": "/Game/Материал_004.Материал_004"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Med_PC_Mouse/StaticMesh/SM_Med_PC_Mouse",
+      "key": "SM_SM_Med_PC_Mouse_6e754b",
+      "triangles": 1602,
+      "uv": 2,
+      "newer": false,
+      "asset": "/Game/Med_PC_Mouse/StaticMesh/SM_Med_PC_Mouse"
+    },
+    {
+      "package": "/Game/SurvivalProps/Models/DuctTape_mdl",
+      "key": "SM_DuctTape_mdl_1db70a",
+      "triangles": 400,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_DuctTape_mdl_1db70a",
+      "slots": [
+        {
+          "name": "DuctTape_mat",
+          "material": "/Game/SurvivalProps/Materials/DuctTape_mat.DuctTape_mat"
+        }
+      ]
+    },
+    {
+      "package": "/Game/SurvivalProps/Models/PillBottle_mdl",
+      "key": "SM_PillBottle_mdl_8462c5",
+      "triangles": 972,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_PillBottle_mdl_8462c5",
+      "slots": [
+        {
+          "name": "PillBottle_mat",
+          "material": "/Game/SurvivalProps/Materials/PillBottle_mat.PillBottle_mat"
+        }
+      ]
+    },
+    {
+      "package": "/Game/ceilinglamp",
+      "key": "SM_ceilinglamp_c60969",
+      "triangles": 1264,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_ceilinglamp_c60969",
+      "slots": [
+        {
+          "name": "WorldGridMaterial",
+          "material": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial"
+        }
+      ]
+    },
+    {
+      "package": "/Game/radio2",
+      "key": "SM_radio2_b09a97",
+      "triangles": 4896,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_radio2_b09a97",
+      "slots": [
+        {
+          "name": "WorldGridMaterial",
+          "material": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial"
+        }
+      ]
+    },
+    {
+      "package": "/Game/television_2",
+      "key": "SM_television_2_32fe98",
+      "triangles": 2310,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_television_2_32fe98",
+      "slots": [
+        {
+          "name": "television_2",
+          "material": "/Game/television_3.television_3"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Оконная_Рама_Cube_004",
+      "key": "SM_Оконная_Рама_Cube_004_78dde6",
+      "triangles": 60,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_Оконная_Рама_Cube_004_78dde6",
+      "slots": [
+        {
+          "name": "Material_004",
+          "material": null
+        },
+        {
+          "name": "Material",
+          "material": "/Game/Material.Material"
+        },
+        {
+          "name": "Material_001",
+          "material": null
+        },
+        {
+          "name": "Material_002",
+          "material": null
+        },
+        {
+          "name": "Material_003",
+          "material": null
+        }
+      ]
+    },
+    {
+      "package": "/Game/Оконная_Рама_Куб",
+      "key": "SM_Оконная_Рама_Куб_191755",
+      "triangles": 12,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_Оконная_Рама_Куб_191755",
+      "slots": [
+        {
+          "name": "WorldGridMaterial",
+          "material": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial"
+        }
+      ]
+    },
+    {
+      "package": "/Game/Стол2",
+      "key": "SM_Стол2_54910a",
+      "triangles": 120,
+      "uv": 3,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_Стол2_54910a",
+      "slots": [
+        {
+          "name": "Material",
+          "material": null
+        },
+        {
+          "name": "Material_001",
+          "material": null
+        },
+        {
+          "name": "Material_002",
+          "material": null
+        },
+        {
+          "name": "Material_003",
+          "material": null
+        },
+        {
+          "name": "Material_004",
+          "material": null
+        },
+        {
+          "name": "Material_005",
+          "material": null
+        },
+        {
+          "name": "Material_006",
+          "material": null
+        }
+      ]
+    },
+    {
+      "package": "/Game/Тарелка_NEW_3",
+      "key": "SM_Тарелка_NEW_3_935ca5",
+      "triangles": 5248,
+      "uv": 2,
+      "newer": true,
+      "asset": "/Game/RoomArt/Meshes/SM_Тарелка_NEW_3_935ca5",
+      "slots": [
+        {
+          "name": "Материал",
+          "material": "/Game/Материал.Материал"
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": "/Game/Fab/Battery_Backup_UPS/battbackup_baseColor",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "982dd4eef96e17d5560f548f0138a5750e1daaa4de230a2d5d6b4bdb04701f16"
+    },
+    {
+      "source": "/Game/Fab/Battery_Backup_UPS/battbackup_metallicRoughness",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "a6a6eff09c4b444bdefc5ec76d0bed35b786325496a40a5e95ca5d61457a461c"
+    },
+    {
+      "source": "/Game/Fab/Battery_Backup_UPS/battbackup_normal",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "44054e2cce60630c633cfcea6251bfdf4a560b10ce3e4563251449fade20b3b8"
+    },
+    {
+      "source": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven_texture_0",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "0aca3e82adf4eef86a75e4d1fd1759c564058fba43377949c643f62c7e00821e"
+    },
+    {
+      "source": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven_texture_1",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "536a2b3c4aea8d35219f32bec4c05c1270ef6a0970e42c3a36410e28eae17822"
+    },
+    {
+      "source": "/Game/Fab/Big_Old_Rusted_Oven/big_old_rusted_oven_texture_2",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "39791ce78851b0f910c9a2efbcbf6617250042cdfa8b62f91b5723ccae93a193"
+    },
+    {
+      "source": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_0",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "1d90de98ad368cbabe4d371f45dce88f6b6208f5eb8620c9ba430b8c09c3cb2f"
+    },
+    {
+      "source": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_1",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture",
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "d5924898a06ff64334964ecff9e078b58c300b55cee1ba94f3715cde2c2cb948"
+    },
+    {
+      "source": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_2",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "edf8048983e86c036968f19601b4caf08043ea23b34a94ae7c70fbcb183a3cf4"
+    },
+    {
+      "source": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_3",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "919ad4283179585cf0a6f4790fb0ff471359a9c45953571c6f0c8f87fd1ef6f5"
+    },
+    {
+      "source": "/Game/Fab/Cartoon_Fridge/cartoon_fridge_texture_4",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "3fb648d637f7977377915cf374075995002341f1e2d99cf7d57291864b67b1c1"
+    },
+    {
+      "source": "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/low_poly_vhs_tape_free_3d_model_texture_0",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "bfe32d6dba2b1711bda28b2930d24e6133fee24a1f609bcfd1443ab22a6dc1d2"
+    },
+    {
+      "source": "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/low_poly_vhs_tape_free_3d_model_texture_1",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "fbc17cc6a81cd1f2e337cd3158949a2daee4dd4f330935f41a173321a2e8c907"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/T_uewlfg2va_2K_B",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "076ec5a06b6d426e67e76d8054f3bbcf2b87faaa92e443c470cfb9cb4a6a69e4"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/T_uewlfg2va_2K_N",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "81479157ae12f109b9acf11887a745a0e6441c68ca2df7b560b962f5d7279769"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/T_uewlfg2va_2K_ORM",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "233ccbcb845041061c176fb0dc2bf44cb404811ffe6ee36328dd4db1f1df8225"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_B",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "941e993cf158656b3ce06d31068064a6248aec67e846a868e0010a2814e8d8f9"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_N",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "f92257717ebb101d456b5c2ee6f5f2992daa9abfa6365639a0ba5bfcfd04402a"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_ORM",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "79d455e655b9b16bd269f9ded5c6130cd8530adf84e47acb7e19d1aaf73dc75c"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/T_vdbmabvva_2K_T",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "TransmissionTexture"
+      ],
+      "sha256": "b38e3de91dfb42fb4f464d501c61d999075d08459813f76ab3e83b894abdb439"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/T_yghlabs_2k_B",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "cfad65164140200676aa3c26b33c149a2fed6d8ececd415914a6f55bc654f3d8"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/T_yghlabs_2k_N",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "b6fa65922f3a54492197cd79e5b0dac402b2e3ca75a55eaa0a8eafeaee532f25"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/T_yghlabs_2k_ORM",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "0dd49acff0b1989c62706c9974ab32fc99b95525ede9c762c92891b0135f5304"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_B",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "37b601f7056c273feb6bedc5d4df02400ac865c39b23c1e47dc4f48ea167deb8"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_H",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "HeightTexture"
+      ],
+      "sha256": "8c0da6800ecce6d2aa41a2e4402c71a4f96228ff31658bcdfab285d8a40a278d"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_N",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "c9bb69ca5cbb2d0eb3a9a7f0542d6aa5fdab90b089b4dc383f35ab7a5747d8d0"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/T_yfkjael_4k_ORM",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "61a68f8cbb872a399fc11b742f623e4fb03246e0135ad63f4ed286118f705c82"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/T_yfnkcdi_2k_B",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "0cadcd69973a50440d4eb39ba0a963165639085ff61700446eb891408871914f"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/T_yfnkcdi_2k_N",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "e3c97198e006ddb6ebb67b8175ca191f304667bf8549b03b07ea511ce770d8b8"
+    },
+    {
+      "source": "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/T_yfnkcdi_2k_ORM",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "12262e7bb9e677d6dc46be74f6ad0cf8f70cae3023017b6919dc30217c93ea71"
+    },
+    {
+      "source": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_B",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "50112688bed07ae465c75a33e27eec7e757e60f8325d68253b99029bf34a8100"
+    },
+    {
+      "source": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_N",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "271f93c39dee04c8394b4dd731f7a0426e120112b698fc7583ef947dee1dad82"
+    },
+    {
+      "source": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_ORM",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "eb454eb5ef5891c721a18fbf2ebab022c2afefa4f09ed95d868d02ab98934cf2"
+    },
+    {
+      "source": "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/T_ugkieimdy_2K_T",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "TransmissionTexture"
+      ],
+      "sha256": "18bc216a5201a537946beb1fa17feb0a3ed321fc12f330726d88f1dddf06a159"
+    },
+    {
+      "source": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad_texture_0",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "8d38b32f50feb57b2cb0ce519eaac01664470c8ccf891ddbd0c815a5f8d017e7"
+    },
+    {
+      "source": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad_texture_1",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "MetallicRoughnessTexture"
+      ],
+      "sha256": "3485724cda500766c7b3741b7cb654d10609f2ad84d83f4b28886a42ca4312bb"
+    },
+    {
+      "source": "/Game/Fab/Single_spiral_notepad/single_spiral_notepad_texture_2",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "NormalTexture"
+      ],
+      "sha256": "6c45a16a50d302e910f4e6b731a74bf63249ae8576c541b44a7880795c6f544e"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/Old_Log_Wall_thjwbdoaw_2K_BaseColor",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "a843a8f1b6072df5edbca52ab0119cb7cea3697546d6f86bf6caedcb99f91fea"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/Old_Log_Wall_ti5teabbw_2K_BaseColor",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [
+        "BaseColorTexture"
+      ],
+      "sha256": "801585c8433d30c8f22d16a999ed850771f0fe75cf9d6a6dc6c9f782179f33c5"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/DuctTape_a",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "roles": [],
+      "sha256": "8f7b1e2cac7311397883f7be183381d55eae8dc1a5a632f498f3d369cc3d1075"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/DuctTape_c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "roles": [],
+      "sha256": "69152d0fbf541d73ab9e765b2ff5adee426d1df7342733ef67144132bf38ce95"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/DuctTape_n",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "roles": [],
+      "sha256": "e114b89c0b088c22ee745073859bca55f12f397f22903d4345d59ecbb1bba101"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/Grunge",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "roles": [],
+      "sha256": "b431325cfab2b63b72912538b6a52f13df4cce65da69af38b1b02f8005eae6f0"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/PillBottle_a",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "roles": [],
+      "sha256": "975949bc9c6d1cd73114ece2b5ea768f154a4ae5ebc5606182d573d173aa2116"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/PillBottle_c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "roles": [],
+      "sha256": "520c1381e3fdbdfaffd30a0bb8d84ac89944c9929af011e62365f2e40199d202"
+    },
+    {
+      "source": "/Game/SurvivalProps/Textures/PillBottle_n",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "roles": [],
+      "sha256": "1c834c7a5c500c93307dcea00cc4f2b6fe4c897daf6273696bc05b0171b4be3b"
+    }
+  ],
+  "material_map": {
+    "/Game/Fab/Battery_Backup_UPS/battbackup": "/Game/RoomArt/Materials/M_battbackup_a1fb2a",
+    "/Game/Fab/Big_Old_Rusted_Oven/big_oven_001": "/Game/RoomArt/Materials/M_big_oven_001_c717f2",
+    "/Game/Fab/Cartoon_Fridge/Fridge_A": "/Game/RoomArt/Materials/M_Fridge_A_aba811",
+    "/Game/Fab/Cartoon_Fridge/Fridge_Door_A": "/Game/RoomArt/Materials/M_Fridge_Door_A_6a2362",
+    "/Game/Fab/Cartoon_Fridge/Fridge_Door_A_001": "/Game/RoomArt/Materials/M_Fridge_Door_A_001_a3b7d5",
+    "/Game/Fab/Headset/Mic": "/Game/RoomArt/Materials/M_Mic_684365",
+    "/Game/Fab/Headset/Speaker": "/Game/RoomArt/Materials/M_Speaker_0ed056",
+    "/Game/Fab/Low_Poly_VHS_Tape_Free_3D_model/Material_003": "/Game/RoomArt/Materials/M_Material_003_7b3bd6",
+    "/Game/Fab/Megascans/3D/Cardboard_Boxes_Pack_uewlfg2va/Medium/MI_uewlfg2va": "/Game/RoomArt/Materials/M_MI_uewlfg2va_83d854",
+    "/Game/Fab/Megascans/3D/Snow_Hill_vdbmabvva/Medium/MI_vdbmabvva": "/Game/RoomArt/Materials/M_MI_vdbmabvva_77933e",
+    "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Lamp_Metal_Old_yghlabs/Medium/MI_yghlabs": "/Game/RoomArt/Materials/M_MI_yghlabs_dffbce",
+    "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Punch_Iron_Old_yfkjael/High/MI_yfkjael": "/Game/RoomArt/Materials/M_MI_yfkjael_023d45",
+    "/Game/Fab/Megascans/3D/Urban_Office_Equipment_Tray_Plastic_Old_yfnkcdi/Medium/MI_yfnkcdi": "/Game/RoomArt/Materials/M_MI_yfnkcdi_40adb3",
+    "/Game/Fab/Megascans/Surfaces/Fresh_Snow_ugkieimdy/Medium/MI_ugkieimdy": "/Game/RoomArt/Materials/M_MI_ugkieimdy_5fca3a",
+    "/Game/Fab/Single_spiral_notepad/M_notebook_closed_clean_001": "/Game/RoomArt/Materials/M_M_notebook_closed_clean_001_938a59",
+    "/Game/FirstPerson/Blueprints/Old_Log_Wall_thjwbdoaw_2K_BaseColor_Mat": "/Game/RoomArt/Materials/M_Old_Log_Wall_thjwbdoaw_2K_BaseColor_Mat_2c31ed",
+    "/Game/FirstPerson/Blueprints/Old_Log_Wall_ti5teabbw_2K_BaseColor_Mat": "/Game/RoomArt/Materials/M_Old_Log_Wall_ti5teabbw_2K_BaseColor_Mat_f359b5",
+    "/Game/Material": "/Game/RoomArt/Materials/M_Material_c61203",
+    "/Game/television_3": "/Game/RoomArt/Materials/M_television_3_0f6c45",
+    "/Game/Материал": "/Game/RoomArt/Materials/M_Материал_9e95bc",
+    "/Game/Материал_001": "/Game/RoomArt/Materials/M_Материал_001_811e15",
+    "/Game/Материал_002": "/Game/RoomArt/Materials/M_Материал_002_94d178",
+    "/Game/Материал_003": "/Game/RoomArt/Materials/M_Материал_003_40793e",
+    "/Game/Материал_004": "/Game/RoomArt/Materials/M_Материал_004_2bb527"
+  },
+  "checks": {
+    "receiver": {
+      "passed": 32,
+      "failed": 0
+    },
+    "transport": {
+      "passed": 55,
+      "failed": 0
+    },
+    "cassette_motion": {
+      "passed": 29,
+      "failed": 0
+    },
+    "menu": {
+      "passed": 38,
+      "failed": 0
+    }
+  },
+  "limitations": [
+    "PBR materials adapted, not exact replication of UE5.4 graphs",
+    "Bed pause interaction and final exterior background remain pending",
+    "Original dish topology retained; artist corrections remain pending",
+    "Third party source attribution remains pending"
+  ],
+  "package": {
+    "configuration": "Windows Development",
+    "cook": "success",
+    "material_compile_warnings": 0,
+    "launches": [
+      {
+        "map": "/Game/UI/MainMenuMap",
+        "seconds": 12,
+        "exit_code": 0
+      },
+      {
+        "map": "/Game/StationIntegration/StationIntegrationMap",
+        "seconds": 12,
+        "exit_code": 0
+      }
+    ]
+  },
+  "screenshots": [
+    "artifacts/room-survey.png",
+    "artifacts/room-overview.png",
+    "artifacts/room-radio.png",
+    "artifacts/room-deck.png",
+    "artifacts/room-reverse.png"
+  ],
+  "recovered_source_geometry": [
+    {
+      "key": "SM_scene_50c5ec",
+      "vertices": "176",
+      "triangles": "164",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-503.300 Y=-1809.750 Z=-0.000), Max=(X=503.306 Y=1864.617 Z=2603.500)",
+      "groups": "battbackup;"
+    },
+    {
+      "key": "SM_big_old_rusted_oven_a8c2ce",
+      "vertices": "17894",
+      "triangles": "17117",
+      "uv": "2",
+      "bounds": "IsValid=true, Min=(X=-603.410 Y=-917.484 Z=-1.154), Max=(X=-405.454 Y=-785.720 Z=185.826)",
+      "groups": "big_oven_001;"
+    },
+    {
+      "key": "SM_cartoon_fridge_4c79b7",
+      "vertices": "5050",
+      "triangles": "6122",
+      "uv": "2",
+      "bounds": "IsValid=true, Min=(X=-42.882 Y=5.590 Z=0.000), Max=(X=49.185 Y=94.315 Z=172.986)",
+      "groups": "Fridge_Door_A;Fridge_Door_A_001;Fridge_A;"
+    },
+    {
+      "key": "SM_Headset_643eb9",
+      "vertices": "2936",
+      "triangles": "5464",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-9.429 Y=-3.813 Z=-7.070), Max=(X=9.429 Y=9.583 Z=20.896)",
+      "groups": "Speaker;Mic;"
+    },
+    {
+      "key": "SM_low_poly_vhs_tape_free_3d_model_248e7d",
+      "vertices": "4596",
+      "triangles": "2398",
+      "uv": "2",
+      "bounds": "IsValid=true, Min=(X=-16.339 Y=-8.303 Z=-1.971), Max=(X=16.285 Y=8.590 Z=0.218)",
+      "groups": "Material_003;"
+    },
+    {
+      "key": "SM_uewlfg2va_LOD0_TIER2_000_87f3be",
+      "vertices": "1298",
+      "triangles": "2134",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-9.110 Y=-7.505 Z=-5.428), Max=(X=9.104 Y=7.505 Z=5.430)",
+      "groups": "MI_uewlfg2va;"
+    },
+    {
+      "key": "SM_uewlfg2va_LOD0_TIER2_001_4d53e7",
+      "vertices": "1308",
+      "triangles": "2134",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-9.864 Y=-9.872 Z=-10.005), Max=(X=9.872 Y=9.875 Z=10.004)",
+      "groups": "MI_uewlfg2va;"
+    },
+    {
+      "key": "SM_uewlfg2va_LOD0_TIER2_002_3f5f12",
+      "vertices": "1325",
+      "triangles": "2180",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-9.001 Y=-5.632 Z=-2.318), Max=(X=9.001 Y=5.639 Z=2.320)",
+      "groups": "MI_uewlfg2va;"
+    },
+    {
+      "key": "SM_uewlfg2va_LOD0_TIER2_003_b28065",
+      "vertices": "1312",
+      "triangles": "2114",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-6.680 Y=-6.642 Z=-4.750), Max=(X=6.681 Y=6.643 Z=4.752)",
+      "groups": "MI_uewlfg2va;"
+    },
+    {
+      "key": "SM_vdbmabvva_tier_2_fbf245",
+      "vertices": "1821",
+      "triangles": "3094",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-1027.781 Y=-681.545 Z=-14.161), Max=(X=1027.133 Y=687.328 Z=278.346)",
+      "groups": "MI_vdbmabvva;"
+    },
+    {
+      "key": "SM_SM_yghlabs_tier_2_63a59e",
+      "vertices": "25704",
+      "triangles": "8568",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-33.823 Y=-9.291 Z=-0.187), Max=(X=14.835 Y=8.886 Z=56.355)",
+      "groups": "MI_yghlabs;"
+    },
+    {
+      "key": "SM_SM_yfkjael_tier_1_8db1e2",
+      "vertices": "45012",
+      "triangles": "15004",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-11.036 Y=-6.088 Z=-0.299), Max=(X=11.008 Y=6.055 Z=18.200)",
+      "groups": "MI_yfkjael;"
+    },
+    {
+      "key": "SM_SM_yfnkcdi_tier_2_de0f00",
+      "vertices": "11238",
+      "triangles": "3746",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-5.672 Y=-5.212 Z=-0.019), Max=(X=5.604 Y=6.088 Z=4.103)",
+      "groups": "MI_yfnkcdi;"
+    },
+    {
+      "key": "SM_single_spiral_notepad_c51708",
+      "vertices": "16936",
+      "triangles": "30342",
+      "uv": "2",
+      "bounds": "IsValid=true, Min=(X=-14.686 Y=-0.629 Z=-1.078), Max=(X=15.397 Y=21.168 Z=0.644)",
+      "groups": "M_notebook_closed_clean_001;"
+    },
+    {
+      "key": "SM_MAGNITOFFFFON2_848ad1",
+      "vertices": "2939",
+      "triangles": "5602",
+      "uv": "2",
+      "bounds": "IsValid=true, Min=(X=-291.332 Y=-80.000 Z=-27.500), Max=(X=-51.332 Y=80.000 Z=28.388)",
+      "groups": "Material;Материал_003;Материал_002;Материал_001;Материал_004;"
+    },
+    {
+      "key": "SM_DuctTape_mdl_1db70a",
+      "vertices": "200",
+      "triangles": "400",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-9.929 Y=-9.875 Z=-0.000), Max=(X=9.929 Y=13.689 Z=7.438)",
+      "groups": "DuctTape_mat;"
+    },
+    {
+      "key": "SM_PillBottle_mdl_8462c5",
+      "vertices": "490",
+      "triangles": "972",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-2.810 Y=-2.810 Z=-0.000), Max=(X=2.810 Y=2.810 Z=11.693)",
+      "groups": "PillBottle_mat;"
+    },
+    {
+      "key": "SM_ceilinglamp_c60969",
+      "vertices": "627",
+      "triangles": "1264",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-7.840 Y=-9.052 Z=26.308), Max=(X=7.840 Y=9.052 Z=110.924)",
+      "groups": "WorldGridMaterial;"
+    },
+    {
+      "key": "SM_radio2_b09a97",
+      "vertices": "2494",
+      "triangles": "4896",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-83.147 Y=-69.882 Z=-10.000), Max=(X=83.147 Y=111.343 Z=10.000)",
+      "groups": "WorldGridMaterial;"
+    },
+    {
+      "key": "SM_television_2_32fe98",
+      "vertices": "1296",
+      "triangles": "2310",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-20.171 Y=-22.829 Z=-0.000), Max=(X=19.804 Y=12.190 Z=41.141)",
+      "groups": "television_2;"
+    },
+    {
+      "key": "SM_Оконная_Рама_Cube_004_78dde6",
+      "vertices": "40",
+      "triangles": "60",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-5.000 Y=-195.534 Z=-90.139), Max=(X=5.000 Y=5.000 Z=90.456)",
+      "groups": "Material_004;Material;Material_001;Material_002;Material_003;"
+    },
+    {
+      "key": "SM_Оконная_Рама_Куб_191755",
+      "vertices": "8",
+      "triangles": "12",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=82.272 Y=-192.136 Z=-85.000), Max=(X=87.272 Y=-2.136 Z=85.000)",
+      "groups": "WorldGridMaterial;"
+    },
+    {
+      "key": "SM_Стол2_54910a",
+      "vertices": "80",
+      "triangles": "120",
+      "uv": "2",
+      "bounds": "IsValid=true, Min=(X=-8.021 Y=-9.841 Z=-4.740), Max=(X=332.314 Y=260.973 Z=207.239)",
+      "groups": "Material;Material_001;Material_002;Material_003;Material_004;Material_005;Material_006;"
+    },
+    {
+      "key": "SM_Тарелка_NEW_3_935ca5",
+      "vertices": "2692",
+      "triangles": "5248",
+      "uv": "1",
+      "bounds": "IsValid=true, Min=(X=-99.671 Y=-99.723 Z=-75.237), Max=(X=100.329 Y=100.277 Z=183.934)",
+      "groups": "Материал;"
+    }
+  ]
+}

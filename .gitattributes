@@ -12,3 +12,14 @@ Tools/MenuBuilder/Fonts/*.ttf filter=lfs diff=lfs merge=lfs -text
 # Integrated desk and deck authoring sources.
 nto_dead_air/Content/StationIntegration/** filter=lfs diff=lfs merge=lfs -text
 Tools/StationIntegration/SourceArt/*.fbx filter=lfs diff=lfs merge=lfs -text
+
+# Room models and only their selected dependencies.
+nto_dead_air/Content/RoomArt/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/RoomIntegration/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/25_Office_Desktop_Items/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/FreeFurniturePack/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/Locker/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/Med_PC_Mouse/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/SurvivalProps/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/Fab/** filter=lfs diff=lfs merge=lfs -text
+nto_dead_air/Content/FirstPerson/Blueprints/** filter=lfs diff=lfs merge=lfs -text

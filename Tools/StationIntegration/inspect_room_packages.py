@@ -192,7 +192,7 @@ def inspect(path, root):
                 saved_engine = f'{major}.{minor}.{patch}'
         result.update(ue4=ue4, ue5=ue5, licensee=licensee, saved_engine=saved_engine,
                       package_name=package_name, exports=exports, custom_versions=custom,
-                      names=names, thumbnail_offset=thumbnail,
+                      names=names, imports=imports, thumbnail_offset=thumbnail,
                       dependencies=sorted({i['name'] for i in imports
                                            if i['class'] == 'Package' and i['name'].startswith('/')}),
                       classes=sorted({e['class'] for e in exports}),
