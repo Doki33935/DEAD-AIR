@@ -1,0 +1,28 @@
+{
+  "source": "https://tevy.dev/models/mechanical-keyboard",
+  "download": "https://tevy.dev/models/mechanical-keyboard/v1/lod1.glb",
+  "license": "CC0 1.0",
+  "source_sha256": "3a28e5320a83d2b4ff4760f10a819c02a3edde54cc4c97b4746092ee062a75e7",
+  "parts": {
+    "case": 1808,
+    "keycaps": 7006
+  },
+  "triangles": 8814,
+  "bounds_cm": [
+    [
+      -6.828393338751043,
+      -18.000000715255737,
+      -0.039971703886132644
+    ],
+    [
+      6.936797796320166,
+      18.000000715255737,
+      4.050581698782637
+    ]
+  ],
+  "adaptations": [
+    "Cable omitted; keyboard case and printed keycaps retained",
+    "Meshopt and Basis decoded for UE5.0 editor; no runtime dependency",
+    "Clockwise Unreal triangle facing after glTF-to-UE reflected coordinate conversion"
+  ]
+}

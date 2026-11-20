@@ -1,0 +1,96 @@
+{
+  "engine": "5.0.3",
+  "source_filename": "Тарелка(NEW)4.fbx",
+  "stored_source": "Tools/StationIntegration/SourceArt/DishLatest.fbx",
+  "source_sha256": "74f716cae93a4c4260ea8c0ea2d1ac944998eb8f2cabc113e6868b58de07ce42",
+  "source_geometry": [
+    {
+      "id": 384908539,
+      "name": "Куб.004\u0000\u0001Geometry",
+      "type": "Mesh",
+      "properties": {},
+      "vertices": 8,
+      "bounds": [
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          -1.0,
+          1.0
+        ]
+      ],
+      "polygons": 6,
+      "uv_layers": 1,
+      "color_layers": 0,
+      "normals": 1,
+      "finite_vertices": true,
+      "valid_polygon_indices": true,
+      "triangles": 12,
+      "ngons": 0,
+      "coincident_polygon_extras": 0,
+      "connected_shells": 1,
+      "closed_shells": 1,
+      "opposite_winding_closed_shells": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0
+    },
+    {
+      "id": 997549110,
+      "name": "Цилиндр\u0000\u0001Geometry",
+      "type": "Mesh",
+      "properties": {},
+      "vertices": 2684,
+      "bounds": [
+        [
+          -48.97909927368164,
+          21.333148956298828
+        ],
+        [
+          -95.52912902832031,
+          45.84162521362305
+        ],
+        [
+          -9.921452522277832,
+          9.854901313781738
+        ]
+      ],
+      "polygons": 2882,
+      "uv_layers": 1,
+      "color_layers": 0,
+      "normals": 1,
+      "finite_vertices": true,
+      "valid_polygon_indices": true,
+      "triangles": 5236,
+      "ngons": 16,
+      "coincident_polygon_extras": 876,
+      "connected_shells": 25,
+      "closed_shells": 24,
+      "opposite_winding_closed_shells": 7,
+      "boundary_edges": 32,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0
+    }
+  ],
+  "camera_and_light_imported": false,
+  "source_texture_files": 0,
+  "adaptation": {
+    "exact_duplicate_triangles_removed": 1560,
+    "remaining_triangles": 3688,
+    "diameter_scale_relative_to_old_mesh": 1.0,
+    "align_to_old_mesh": "XY centre and Z base",
+    "scene_actor_transform": "preserved",
+    "material": "/Game/RoomArt/DishLatest/M_DishMetal",
+    "two_sided_material": true,
+    "fixed_source_winding": false
+  },
+  "limitations": [
+    "7 reverse-winding closed shells and one open shell (32 boundary edges) still require artist source correction.",
+    "No new dish rotation gameplay or separate pivot mechanics implemented."
+  ]
+}

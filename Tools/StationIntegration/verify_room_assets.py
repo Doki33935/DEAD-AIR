@@ -42,7 +42,7 @@ expect(abs((hi.y - lo.y) * deck.get_actor_scale3d().y - 160 * .15434139966964722
 
 rig = next(a for a in actors if a.get_class().get_name() == 'BP_DeskWorkstationRig_C')
 view = next(c for c in rig.get_components_by_class(u.ChildActorComponent) if c.get_name() == 'ViewCenter')
-expect(abs(view.get_editor_property('relative_location').z - 104) < .01, 'Overview lowered by 30.82 cm in world space')
+expect(abs(view.get_editor_property('relative_location').z - 112) < .01, 'Overview raised to a seated eye height of 137.31 cm')
 expect(abs(view.get_editor_property('relative_rotation').pitch + 10.5) < .01, 'Overview faces instruments instead of looking down from above')
 
 windows = 0
@@ -58,4 +58,19 @@ for actor in actors:
 expect(windows == 2, 'Both window panes are transparent')
 bulb = next(a for a in actors if a.get_actor_label() == 'ROOM — central dim bulb')
 expect(abs(bulb.light_component.get_editor_property('intensity') - 1.25) < .01, 'Main room light reduced from 6 to 1.25 cd')
+keyboard = [a for a in actors if isinstance(a, u.StaticMeshActor) and a.static_mesh_component.static_mesh
+            and a.static_mesh_component.static_mesh.get_name() == 'SM_KeyboardCC0']
+expect(len(keyboard) == 1, 'One licensed CC0 keyboard is present')
+kc, ke, _ = u.SystemLibrary.get_component_bounds(keyboard[0].static_mesh_component)
+expect(abs(ke.y * 2 - 36) < .1, 'Keyboard retains a real 36 cm width')
+monitor = next(a for a in actors if a.get_actor_label() == 'ROOM — Монитор2')
+mc, me, _ = u.SystemLibrary.get_component_bounds(monitor.static_mesh_component)
+expect(kc.x + ke.x < mc.x - me.x and abs(kc.y - mc.y) < 3, 'Keyboard stands in front of the monitor without intersecting it')
+tiny = next(a for a in actors if a.get_actor_label() == 'ROOM — tiny desk lamp')
+expect(0 < tiny.light_component.get_editor_property('intensity') <= .1, 'Desk lamp is a very weak local light')
+dc, de, _ = u.SystemLibrary.get_component_bounds(body)
+expect(abs(dc.x - 396) < .1 and abs(dc.y - 412) < .1, 'Deck moved onto the free part of the desk')
+dishes = [a for a in actors if isinstance(a, u.StaticMeshActor) and a.static_mesh_component.static_mesh
+          and a.static_mesh_component.static_mesh.get_name() == 'SM_DishLatestClean']
+expect(len(dishes) == 1, 'New checked Yarik dish replaces the old scene mesh')
 u.log('ROOM ASSET VERIFY COMPLETE: %d checks, 0 failures' % checks)

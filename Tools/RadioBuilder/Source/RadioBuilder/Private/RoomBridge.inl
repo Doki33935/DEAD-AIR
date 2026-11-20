@@ -38,10 +38,20 @@ bool Preview(){
  if(Stage==8&&Now>At+.6){Shot(TEXT("room-reverse.png"));At=Now;Stage=9;return true;}
  if(Stage==9&&Now>At+.4){auto Camera=Survey.Get();Camera->SetActorLocation(FVector(140,290,100));Camera->SetActorRotation((FVector(54,382,45)-Camera->GetActorLocation()).Rotation());Camera->GetCameraComponent()->SetFieldOfView(55);
   // Inspection light is transient PIE-only, never saved in the horror room.
-  auto Inspection=W->SpawnActor<APointLight>();Inspection->SetActorLocation(FVector(95,320,120));Inspection->GetLightComponent()->SetIntensity(4);Inspection->GetLightComponent()->SetLightColor(FLinearColor::White);
+  auto Inspection=W->SpawnActor<APointLight>();Inspection->GetLightComponent()->SetMobility(EComponentMobility::Movable);CastChecked<UPointLightComponent>(Inspection->GetLightComponent())->SetIntensityUnits(ELightUnits::Candelas);Inspection->SetActorLocation(FVector(95,320,120));Inspection->GetLightComponent()->SetIntensity(.04);Inspection->GetLightComponent()->SetLightColor(FLinearColor::White);
   At=Now;Stage=10;return true;}
  if(Stage==10&&Now>At+.6){Shot(TEXT("room-box-material-check.png"));At=Now;Stage=11;return true;}
- if(Stage==11&&Now>At+.4){UE_LOG(LogTemp,Display,TEXT("ROOM PREVIEW COMPLETE"));GEditor->RequestEndPlayMap();At=Now;Stage=99;return true;}
+ if(Stage==11&&Now>At+.4){AStaticMeshActor* Dish=nullptr;for(TActorIterator<AStaticMeshActor> I(W);I;++I)if(auto M=I->GetStaticMeshComponent()->GetStaticMesh())if(M->GetName()==TEXT("SM_DishLatestClean"))Dish=*I;
+  if(Dish){
+   // Inspect a transient, unscaled copy away from terrain/room occlusion.
+   auto Copy=W->SpawnActor<AStaticMeshActor>();Copy->GetStaticMeshComponent()->SetMobility(EComponentMobility::Movable);Copy->GetStaticMeshComponent()->SetStaticMesh(Dish->GetStaticMeshComponent()->GetStaticMesh());Copy->GetStaticMeshComponent()->SetMaterial(0,Dish->GetStaticMeshComponent()->GetMaterial(0));Copy->SetActorLocation(FVector(-10000,-10000,200));
+   auto B=Copy->GetComponentsBoundingBox();auto Camera=Survey.Get();auto Offset=FVector(1,-1,.65).GetSafeNormal()*B.GetExtent().Size()*2.8;Camera->SetActorLocation(B.GetCenter()+Offset);Camera->SetActorRotation((-Offset).Rotation());auto Light=W->SpawnActor<APointLight>();Light->GetLightComponent()->SetMobility(EComponentMobility::Movable);CastChecked<UPointLightComponent>(Light->GetLightComponent())->SetIntensityUnits(ELightUnits::Candelas);Light->SetActorLocation(B.GetCenter()+Offset*.7);Light->GetLightComponent()->SetIntensity(1.5);CastChecked<UPointLightComponent>(Light->GetLightComponent())->SetAttenuationRadius(1500);
+  }
+  At=Now;Stage=12;return true;}
+ if(Stage==12&&Now>At+.7){Shot(TEXT("room-dish-material-check.png"));At=Now;Stage=13;return true;}
+ if(Stage==13&&Now>At+.4){auto Light=W->SpawnActor<APointLight>();Light->GetLightComponent()->SetMobility(EComponentMobility::Movable);CastChecked<UPointLightComponent>(Light->GetLightComponent())->SetIntensityUnits(ELightUnits::Candelas);Light->SetActorLocation(FVector(480,315,145));Light->GetLightComponent()->SetIntensity(.05);CastChecked<UPointLightComponent>(Light->GetLightComponent())->SetAttenuationRadius(120);auto Camera=Survey.Get();Camera->SetActorLocation(FVector(450,315,122));Camera->SetActorRotation((FVector(493,315,92)-Camera->GetActorLocation()).Rotation());At=Now;Stage=14;return true;}
+ if(Stage==14&&Now>At+.6){Shot(TEXT("room-keyboard-material-check.png"));At=Now;Stage=15;return true;}
+ if(Stage==15&&Now>At+.4){UE_LOG(LogTemp,Display,TEXT("ROOM PREVIEW COMPLETE"));GEditor->RequestEndPlayMap();At=Now;Stage=99;return true;}
  return true;
 }
 void RecoverTextures(){

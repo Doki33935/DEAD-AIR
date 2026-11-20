@@ -23,3 +23,8 @@ nto_dead_air/Content/Med_PC_Mouse/** filter=lfs diff=lfs merge=lfs -text
 nto_dead_air/Content/SurvivalProps/** filter=lfs diff=lfs merge=lfs -text
 nto_dead_air/Content/Fab/** filter=lfs diff=lfs merge=lfs -text
 nto_dead_air/Content/FirstPerson/Blueprints/** filter=lfs diff=lfs merge=lfs -text
+
+# CC0 keyboard source and prepared UE 5.0 geometry/textures.
+Tools/StationIntegration/SourceArt/KeyboardTevy/*.glb filter=lfs diff=lfs merge=lfs -text
+Tools/StationIntegration/SourceArt/KeyboardTevy/*.png filter=lfs diff=lfs merge=lfs -text
+Tools/StationIntegration/SourceArt/KeyboardTevy/*.tsv filter=lfs diff=lfs merge=lfs -text

@@ -87,6 +87,8 @@ bool Verify() {
  auto PC=UGameplayStatics::GetPlayerController(W,0);auto View=CastChecked<UChildActorComponent>(MenuVerify::Obj(Rig,TEXT("ViewCenter")));auto Camera=CastChecked<ACameraActor>(View->GetChildActor());
  auto Tape=CastChecked<AActor>(MenuVerify::Obj(Deck,TEXT("CassetteReference")));auto Shell=CastChecked<UStaticMeshComponent>(MenuVerify::Obj(Tape,TEXT("CassetteShell")));
  if(Stage==0){
+  MenuVerify::Run(Rig,TEXT("ResetRoomTurn"));auto InitialBP=CastChecked<UBlueprint>(Rig->GetClass()->ClassGeneratedBy);View->SetRelativeTransform(CastChecked<USceneComponent>(StationBuild::SCS(InitialBP,TEXT("ViewCenter"))->ComponentTemplate)->GetRelativeTransform());
+  Expect(FMath::IsNearlyEqual(MenuVerify::Num(Rig,TEXT("RoomLookWidth")),48.,.01),TEXT("Ordinary desk look uses the original small sector"));
   Expect(DecorativeTapes==0,TEXT("No decorative duplicate cassettes remain"));Expect(SimpleMice==0,TEXT("The less detailed right-hand mouse is removed"));
   Expect(Shell->GetStaticMesh()&&Shell->GetStaticMesh()->GetName()==TEXT("SM_low_poly_vhs_tape_free_3d_model_248e7d"),TEXT("The playable cassette uses the free source model"));
   int Visible=0;TArray<UStaticMeshComponent*> Parts;Tape->GetComponents(Parts);for(auto C:Parts)if(C->GetStaticMesh()&&C->IsVisible()&&!C->bHiddenInGame)Visible++;
@@ -95,11 +97,14 @@ bool Verify() {
   Expect(Bulb&&Bulb->GetActorLocation().X==275&&Bulb->GetActorLocation().Y==225,TEXT("The dim bulb sits in the centre of the room"));
   Expect(Bulb&&FVector::DotProduct(Bulb->GetActorLocation()-Camera->GetActorLocation(),Camera->GetActorForwardVector())<0,TEXT("The room bulb is behind the seated character"));
   auto Target=Bed->GetComponentsBoundingBox().GetCenter();auto Desired=(Target-Camera->GetActorLocation()).Rotation();Desired.Yaw-=Rig->GetActorRotation().Yaw;auto BP=CastChecked<UBlueprint>(Rig->GetClass()->ClassGeneratedBy);auto Base=CastChecked<USceneComponent>(StationBuild::SCS(BP,TEXT("ViewCenter"))->ComponentTemplate)->GetRelativeRotation();
-  double NX=FMath::FindDeltaAngleDegrees(Base.Yaw,Desired.Yaw)/175.,NY=(Desired.Pitch-Base.Pitch)/-42.;Expect(FMath::Abs(NX)<1&&FMath::Abs(NY)<.76,TEXT("The bed lies within the released mouse look range"));
+  double NX=.99,NY=(Desired.Pitch-Base.Pitch)/-14.;Expect(FMath::Abs(NY)<.9,TEXT("The bed is reachable by the deliberate edge turn without a wide direct look sector"));
   int SX=0,SY=0;PC->GetViewportSize(SX,SY);MouseX=FMath::RoundToInt((NX+1)*SX*.5);MouseY=FMath::RoundToInt((NY+1)*SY*.5);UWidgetBlueprintLibrary::SetFocusToGameViewport();PC->SetMouseLocation(MouseX,MouseY);At=Now;Stage=1;return true;
  }
- if(Stage==1&&Now<=At+2.0){PC->SetMouseLocation(MouseX,MouseY);MenuVerify::Run(Rig,TEXT("UpdateDeskLook"));return true;}
- if(Stage==1&&Now>At+2.0){
+ if(Stage==1&&Now<=At+2.8){PC->SetMouseLocation(MouseX,MouseY);MenuVerify::Run(Rig,TEXT("UpdateDeskLook"));return true;}
+ if(Stage==1&&Now>At+2.8){int SX=0,SY=0;PC->GetViewportSize(SX,SY);MouseX=SX/2;PC->SetMouseLocation(MouseX,MouseY);At=Now;Stage=11;return true;}
+ if(Stage==11&&Now<=At+1.0){PC->SetMouseLocation(MouseX,MouseY);MenuVerify::Run(Rig,TEXT("UpdateDeskLook"));return true;}
+ if(Stage==11&&Now>At+1.0){
+  Expect(MenuVerify::Num(Rig,TEXT("RoomTurn"))>.85&&MenuVerify::Num(Rig,TEXT("RoomLookWidth"))<22,TEXT("Edge hold selects a stable bed sector with limited local look"));
   FVector2D Screen;int SX=0,SY=0;PC->GetViewportSize(SX,SY);bool Projected=PC->ProjectWorldLocationToScreen(Bed->GetComponentsBoundingBox().GetCenter(),Screen);
   Expect(Projected&&FMath::Abs(Screen.X-SX*.5)<SX*.15&&FMath::Abs(Screen.Y-SY*.5)<SY*.15,TEXT("Actual Blueprint mouse look turns the camera onto the bed"));
   auto Dir=FPaths::ProjectSavedDir()/TEXT("RoomPolishChecks");IFileManager::Get().MakeDirectory(*Dir,true);FScreenshotRequest::RequestScreenshot(Dir/TEXT("bed-look.png"),true,false);

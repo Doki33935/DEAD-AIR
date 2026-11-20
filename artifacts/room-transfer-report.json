@@ -2,7 +2,7 @@
   "engine": "5.0.3",
   "newer_editor_installed": false,
   "active_map": "/Game/StationIntegration/StationIntegrationMap",
-  "scene_mesh_actors": 53,
+  "scene_mesh_actors": 54,
   "source_unique_meshes": 36,
   "recovered_meshes": 24,
   "compatible_meshes": 12,
@@ -1780,5 +1780,113 @@
     },
     "cursor_test_scope": "Production recenter handler in PIE; not unattended physical OS cursor tracking"
   },
-  "current_revision": "room_mood"
+  "current_revision": "desk_refinement",
+  "desk_refinement": {
+    "overview_world_height_cm": 137.31442656,
+    "desk_horizontal_half_angle": 48,
+    "bed_horizontal_half_angle": 16,
+    "vertical_half_angle": 14,
+    "edge_hold_seconds": 0.35,
+    "edge_width_fraction": 0.05,
+    "deck_body_centre_cm": [
+      396,
+      412,
+      94
+    ],
+    "deck_body_size_cm": [
+      37.04,
+      24.69,
+      8.49
+    ],
+    "cassette_tray_local": [
+      12,
+      -35,
+      3.38317
+    ],
+    "desk_lamp_candela": 0.06,
+    "desk_lamp_radius_cm": 70,
+    "keyboard": {
+      "source": "https://tevy.dev/models/mechanical-keyboard",
+      "download": "https://tevy.dev/models/mechanical-keyboard/v1/lod1.glb",
+      "license": "CC0 1.0",
+      "source_sha256": "3a28e5320a83d2b4ff4760f10a819c02a3edde54cc4c97b4746092ee062a75e7",
+      "parts": {
+        "case": 1808,
+        "keycaps": 7006
+      },
+      "triangles": 8814,
+      "bounds_cm": [
+        [
+          -6.828393338751043,
+          -18.000000715255737,
+          -0.039971703886132644
+        ],
+        [
+          6.936797796320166,
+          18.000000715255737,
+          4.050581698782637
+        ]
+      ],
+      "adaptations": [
+        "Cable omitted; keyboard case and printed keycaps retained",
+        "Meshopt and Basis decoded for UE5.0 editor; no runtime dependency",
+        "Clockwise Unreal triangle facing after glTF-to-UE reflected coordinate conversion"
+      ]
+    },
+    "latest_dish_report": "artifacts/dish-latest-report.json",
+    "cursor_test_scope": "Existing production recenter handler in PIE; not a manual OS cursor test",
+    "inspection_images": {
+      "keyboard": {
+        "file": "artifacts/room-keyboard-material-check.png",
+        "transient_light_cd": 0.05
+      },
+      "dish": {
+        "file": "artifacts/room-dish-material-check.jpg",
+        "transient_light_cd": 150,
+        "isolated_unscaled_copy": true
+      },
+      "saved_in_game_map": false
+    },
+    "scene_static_mesh_actors": 54,
+    "asset_checks": {
+      "passed": 59,
+      "failed": 0
+    },
+    "pie_checks": {
+      "room_polish": {
+        "passed": 18,
+        "failed": 0
+      },
+      "receiver": {
+        "passed": 32,
+        "failed": 0
+      },
+      "cassette_motion": {
+        "passed": 29,
+        "failed": 0
+      },
+      "transport": {
+        "passed": 55,
+        "failed": 0
+      },
+      "menu": {
+        "passed": 38,
+        "failed": 0
+      }
+    },
+    "windows_development_cook": "success",
+    "compiler": "MSVC 14.38.33130",
+    "package_launches": [
+      {
+        "map": "/Game/UI/MainMenuMap",
+        "seconds": 12,
+        "exit_code": 0
+      },
+      {
+        "map": "/Game/StationIntegration/StationIntegrationMap",
+        "seconds": 12,
+        "exit_code": 0
+      }
+    ]
+  }
 }

@@ -1,0 +1,5 @@
+Mechanical Keyboard v1 - tevy.dev
+Source: https://tevy.dev/models/mechanical-keyboard
+License: CC0 1.0 - https://creativecommons.org/publicdomain/zero/1.0/
+Source GLB copyright: CC0 1.0, https://tevy.dev
+Downloaded 2026-11-20. Cable omitted in adapted UE mesh.
