@@ -1,0 +1,15 @@
+{
+  "models": 50,
+  "game_models": 48,
+  "textures": 72,
+  "instances": 69,
+  "total_bytes": 497061051,
+  "all_files_nonempty": true,
+  "png_pixels_verified": true,
+  "mesh_format": "FBX",
+  "texture_format": "PNG",
+  "fbx_files_parsed": 50,
+  "fbx_geometry_blocks": 50,
+  "all_meshes_have_uv": true,
+  "reference_has_instrument_component_geometry": true
+}

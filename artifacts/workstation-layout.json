@@ -1,0 +1,40 @@
+{
+  "radio_body_centre_cm": [
+    498.0000000000005,
+    404.00000000000006,
+    107.0
+  ],
+  "deck_body_centre_cm": [
+    414.00000000000205,
+    402.0000000000005,
+    94.00000000000001
+  ],
+  "lamp_temperature_kelvin": 2900,
+  "lamp_candela": 0.08,
+  "lamp_radius_cm": 100,
+  "prop_actor_positions": {
+    "SM_Headset_643eb9": [
+      460.0,
+      327.0,
+      92.0
+    ],
+    "SM_single_spiral_notepad_c51708": [
+      440.0,
+      360.0,
+      91.13720454
+    ],
+    "SM_pencil_holder": [
+      422.0,
+      439.0,
+      98.0
+    ],
+    "SM_SM_yghlabs_tier_2_63a59e": [
+      447.0,
+      410.0,
+      90.0
+    ]
+  },
+  "overview_height_cm": 137.31442656,
+  "manual_radio_widget_layout": "preserved",
+  "deck_label_emissive_multiplier": 0.07
+}

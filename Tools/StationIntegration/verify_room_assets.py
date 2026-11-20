@@ -69,8 +69,9 @@ expect(kc.x + ke.x < mc.x - me.x and abs(kc.y - mc.y) < 3, 'Keyboard stands in f
 tiny = next(a for a in actors if a.get_actor_label() == 'ROOM — tiny desk lamp')
 expect(0 < tiny.light_component.get_editor_property('intensity') <= .1, 'Desk lamp is a very weak local light')
 dc, de, _ = u.SystemLibrary.get_component_bounds(body)
-expect(abs(dc.x - 396) < .1 and abs(dc.y - 412) < .1, 'Deck moved onto the free part of the desk')
+expect(abs(dc.x - 414) < .1 and abs(dc.y - 402) < .1, 'Deck moved onto the free part of the desk')
 dishes = [a for a in actors if isinstance(a, u.StaticMeshActor) and a.static_mesh_component.static_mesh
           and a.static_mesh_component.static_mesh.get_name() == 'SM_DishLatestClean']
 expect(len(dishes) == 1, 'New checked Yarik dish replaces the old scene mesh')
+expect(tiny.light_component.get_editor_property('use_temperature') and abs(tiny.light_component.get_editor_property('temperature') - 2900) < 1, 'Desk task light uses a warm 2900 K temperature')
 u.log('ROOM ASSET VERIFY COMPLETE: %d checks, 0 failures' % checks)

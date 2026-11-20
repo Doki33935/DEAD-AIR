@@ -141,8 +141,6 @@
 
 namespace RadioBuild {
 const UEdGraphSchema_K2* Schema = GetDefault<UEdGraphSchema_K2>();
-UBlueprint* Radio;
-UWidgetBlueprint* Panel;
 int32 Position=0;
 FEdGraphPinType Type(FName Cat, UObject* Obj=nullptr) { FEdGraphPinType T; T.PinCategory=Cat; T.PinSubCategoryObject=Obj; return T; }
 template<class T> T* Node(UEdGraph* G) { T* N=NewObject<T>(G); G->AddNode(N,false,false); N->CreateNewGuid(); N->NodePosX=(Position++%5)*500; N->NodePosY=(Position/5)*380; return N; }
@@ -158,31 +156,41 @@ UK2Node_Event* Event(UEdGraph* G,UClass* C,FName Name) { auto E=Node<UK2Node_Eve
 void Compile(UBlueprint* B) { FKismetEditorUtilities::CompileBlueprint(B); check(B->Status!=BS_Error); }
 void Save(UObject* O) { auto P=O->GetOutermost(); FSavePackageArgs A; A.TopLevelFlags=RF_Public|RF_Standalone; A.SaveFlags=SAVE_NoError; FString File=FPackageName::LongPackageNameToFilename(P->GetName(),FPackageName::GetAssetPackageExtension()); check(UPackage::SavePackage(P,O,*File,A)); }
 void Var(UBlueprint* B,FName Name,FEdGraphPinType T,FString Default) { check(FBlueprintEditorUtils::AddMemberVariable(B,Name,T,Default)); }
-USCS_Node* Component(const TCHAR* Name,UClass* Class) { auto N=Radio->SimpleConstructionScript->CreateNode(Class,Name); Radio->SimpleConstructionScript->AddNode(N); return N; }
-UEdGraphPin* RadioRef(UEdGraph* G) { return Get(G,TEXT("RadioReference"))->FindPin(TEXT("RadioReference")); }
-UEdGraphPin* Read(UEdGraph* G,FName Name) { auto N=Get(G,Name,Radio->GeneratedClass); Link(RadioRef(G),Pin(N,TEXT("self"))); return N->FindPin(Name); }
 void BindText(UWidgetBlueprint* B,UTextBlock* Text,FName Function) { FDelegateEditorBinding Bind; Bind.ObjectName=Text->GetName(); Bind.PropertyName=TEXT("Text"); Bind.FunctionName=Function; B->Bindings.Add(Bind); }
 void TextReturn(UWidgetBlueprint* B,FName Name,TFunction<UEdGraphPin*(UEdGraph*)> Make) { UK2Node_FunctionEntry* E; auto G=Fun(B,Name,E); E->AddExtraFlags(FUNC_BlueprintPure|FUNC_Const); auto R=Node<UK2Node_FunctionResult>(G); R->FunctionReference.SetSelfMember(Name); R->AllocateDefaultPins(); R->CreateUserDefinedPin(TEXT("ReturnValue"),Type(UEdGraphSchema_K2::PC_Text),EGPD_Input); Link(Pin(E,TEXT("then")),Pin(R,TEXT("execute"))); Link(Make(G),Pin(R,TEXT("ReturnValue"))); }
-UTextBlock* Label(UCanvasPanel* Canvas,const TCHAR* Name,FString Value,float X,float Y,float W,float H,int Size=24) { auto T=Panel->WidgetTree->ConstructWidget<UTextBlock>(UTextBlock::StaticClass(),Name); T->SetText(FText::FromString(Value)); auto F=T->Font; F.Size=Size; T->SetFont(F); T->SetColorAndOpacity(FSlateColor(FLinearColor(.65f,1,.55f))); auto S=Canvas->AddChildToCanvas(T); S->SetPosition(FVector2D(X,Y)); S->SetSize(FVector2D(W,H)); return T; }
 }
-#include "RadioFinal.inl"
-#include "MenuFinal.inl"
+#include "BlueprintAuthoring.inl"
+#include "InteractionAccess.inl"
 #include "MenuVerify.inl"
-#include "StationIntegration.inl"
-#include "StationBuild.inl"
-#include "StationVerify.inl"
-#include "ReceiverUpgrade.inl"
 #include "ReceiverVerify.inl"
-#include "TransportUpgrade.inl"
 #include "TransportVerify.inl"
-#include "PresentationUpgrade.inl"
-#include "CassetteMotionUpgrade.inl"
 #include "CassetteMotionVerify.inl"
 #include "RoomBridge.inl"
 #include "RoomPolish.inl"
-#include "RoomMood.inl"
-#include "DeskRefinement.inl"
+#include "ProjectMaintenance.inl"
+#include "ModelPreparation.inl"
+#include "InteractionRefactor.inl"
+#include "InteractionVerify.inl"
 class FRadioBuilderModule : public IModuleInterface {
-public: void StartupModule() override { if(FParse::Param(FCommandLine::Get(),TEXT("DeskRefinement")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){DeskRefinement::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomMood")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){RoomMood::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomPolishVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return RoomPolish::Verify();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomPolish")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){RoomPolish::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomPolishAudit")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){RoomPolish::Audit();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomPreview")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return RoomBridge::Preview();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomRecoverTextures")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){RoomBridge::RecoverTextures();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomRecoverMeshes")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){RoomBridge::RecoverMeshes();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RoomPayloadProbe")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){RoomBridge::Probe();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("CassetteMotionUpgrade")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){CassetteMotionUpgrade::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("CassetteMotionVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return CassetteMotionVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("PresentationUpgrade")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){PresentationUpgrade::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("TransportVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return TransportVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("TransportUpgrade")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){TransportUpgrade::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("ReceiverVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return ReceiverVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("ReceiverUpgrade")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ReceiverUpgrade::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationPolish")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationBuild::Polish();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationRig")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationBuild::AssembleRig();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return StationVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("StationBuild")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationBuild::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationImport")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationIntegration::ImportModels();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("StationInspect")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){StationIntegration::Inspect();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuArtworkFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixSlotArtwork();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuMediaFix")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::FixMedia();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return MenuVerify::Tick();}),.05f); if(FParse::Param(FCommandLine::Get(),TEXT("MenuFinal")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){MenuBuild::Build();FPlatformMisc::RequestExit(false);return false;}),2.f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioLiveVerify")))FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){return FinalRadio::VerifyLivePIE();}),.1f); if(FParse::Param(FCommandLine::Get(),TEXT("RadioFinal"))||FParse::Param(FCommandLine::Get(),TEXT("RadioPolish"))) { FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([](float){ if(FParse::Param(FCommandLine::Get(),TEXT("RadioPolish")))FinalRadio::PolishGraphs(); else FinalRadio::Build(); FPlatformMisc::RequestExit(false); return false; }),2.f); } }
+public:
+ void StartupModule() override {
+  auto Param=[](const TCHAR* N){return FParse::Param(FCommandLine::Get(),N);};
+  auto Once=[](TFunction<void()> Action){FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Action](float){Action();FPlatformMisc::RequestExit(false);return false;}),2.f);};
+  auto Check=[](TFunction<bool()> Action){FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Action](float){return Action();}),.05f);};
+  if(Param(TEXT("InteractionRefactor")))Once([](){InteractionRefactor::Build();});
+  if(Param(TEXT("PrepareModels")))Once([](){ModelPreparation::Keyboard();ModelPreparation::Dish();});
+  if(Param(TEXT("ProjectAudit")))Once([](){ProjectMaintenance::Audit();});
+  if(Param(TEXT("TidyInteractionGraphs")))Once([](){ProjectMaintenance::Tidy();});
+  if(Param(TEXT("RoomRecoverTextures")))Once([](){RoomBridge::RecoverTextures();});
+  if(Param(TEXT("RoomRecoverMeshes")))Once([](){RoomBridge::RecoverMeshes();});
+  if(Param(TEXT("RoomPayloadProbe")))Once([](){RoomBridge::Probe();});
+  if(Param(TEXT("InteractionVerify")))Check([](){return InteractionVerify::Tick();});
+  if(Param(TEXT("RoomPolishVerify")))Check([](){return RoomPolish::Verify();});
+  if(Param(TEXT("ReceiverVerify")))Check([](){return ReceiverVerify::Tick();});
+  if(Param(TEXT("TransportVerify")))Check([](){return TransportVerify::Tick();});
+  if(Param(TEXT("CassetteMotionVerify")))Check([](){return CassetteMotionVerify::Tick();});
+  if(Param(TEXT("MenuVerify")))Check([](){return MenuVerify::Tick();});
+  if(Param(TEXT("RoomPreview")))Check([](){return RoomBridge::Preview();});
+ }
 };
 IMPLEMENT_MODULE(FRadioBuilderModule,RadioBuilder)

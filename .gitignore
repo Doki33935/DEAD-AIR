@@ -11,3 +11,6 @@ Tools/RadioBuilder/*.log
 nto_dead_air/Build/Windows/FileOpenOrder/
 
 **/__pycache__/
+
+# RunUAT regenerates this editor plugin packaging filter.
+Tools/RadioBuilder/Config/FilterPlugin.ini

@@ -27,10 +27,10 @@ bool Preview(){
   UE_LOG(LogTemp,Display,TEXT("ROOM PREVIEW actors=%d rig=%s radio=%s deck=%s"),Models,*Rig->GetActorLocation().ToString(),*Radio->GetActorLocation().ToString(),*Deck->GetActorLocation().ToString());
   Shot(TEXT("room-overview.png"));At=Now;Stage=1;return true;
  }
- if(Stage==1&&Now>At+.4){UGameplayStatics::GetPlayerController(W,0)->bEnableClickEvents=true;MenuVerify::Run(Rig,TEXT("FocusRadio"));At=Now;Stage=2;return true;}
+ if(Stage==1&&Now>At+.4){UGameplayStatics::GetPlayerController(W,0)->bEnableClickEvents=true;InteractionAccess::Focus(Rig,TEXT("BP_RadioIntegrated_C"));At=Now;Stage=2;return true;}
  if(Stage==2&&Now>At+.8){auto C=CastChecked<UPrimitiveComponent>(MenuVerify::Obj(Radio,TEXT("Click_Power")));if(!MenuVerify::Flag(Radio,TEXT("Powered")))C->OnClicked.Broadcast(C,EKeys::LeftMouseButton);At=Now;Stage=21;return true;}
  if(Stage==21&&Now>At+.4){Shot(TEXT("room-radio.png"));At=Now;Stage=3;return true;}
- if(Stage==3&&Now>At+.4){MenuVerify::Run(Rig,TEXT("FocusDeck"));At=Now;Stage=4;return true;}
+ if(Stage==3&&Now>At+.4){InteractionAccess::Focus(Rig,TEXT("BP_TapeDeckIntegrated_C"));At=Now;Stage=4;return true;}
  if(Stage==4&&Now>At+.8){Shot(TEXT("room-deck.png"));At=Now;Stage=5;return true;}
  if(Stage==5&&Now>At+.4){auto Camera=W->SpawnActor<ACameraActor>();Survey=Camera;Camera->SetActorLocation(FVector(70,85,170));Camera->SetActorRotation((FVector(350,330,110)-Camera->GetActorLocation()).Rotation());Camera->GetCameraComponent()->SetFieldOfView(85);UGameplayStatics::GetPlayerController(W,0)->SetViewTargetWithBlend(Camera,0);At=Now;Stage=6;return true;}
  if(Stage==6&&Now>At+.6){Shot(TEXT("room-survey.png"));At=Now;Stage=7;return true;}

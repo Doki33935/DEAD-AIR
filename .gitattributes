@@ -28,3 +28,6 @@ nto_dead_air/Content/FirstPerson/Blueprints/** filter=lfs diff=lfs merge=lfs -te
 Tools/StationIntegration/SourceArt/KeyboardTevy/*.glb filter=lfs diff=lfs merge=lfs -text
 Tools/StationIntegration/SourceArt/KeyboardTevy/*.png filter=lfs diff=lfs merge=lfs -text
 Tools/StationIntegration/SourceArt/KeyboardTevy/*.tsv filter=lfs diff=lfs merge=lfs -text
+
+# Shared Blueprint interaction controller, interface and HUD.
+nto_dead_air/Content/Interaction/** filter=lfs diff=lfs merge=lfs -text

@@ -1,6 +1,6 @@
 // Editor-only integration checks. Use a unique SaveGame namespace; never touch player slots.
 namespace MenuVerify {
-UObject* Obj(UObject* O,const TCHAR* N){return O?FindFProperty<FObjectProperty>(O->GetClass(),N)->GetObjectPropertyValue_InContainer(O):nullptr;}
+UObject* Obj(UObject* O,const TCHAR* N){if(!O)return nullptr;auto P=FindFProperty<FObjectProperty>(O->GetClass(),N);checkf(P,TEXT("Verification expected property %s on %s"),N,*O->GetClass()->GetName());return P->GetObjectPropertyValue_InContainer(O);}
 double Num(UObject* O,const TCHAR* N){return FindFProperty<FDoubleProperty>(O->GetClass(),N)->GetPropertyValue_InContainer(O);}
 void Number(UObject* O,const TCHAR* N,double V){FindFProperty<FDoubleProperty>(O->GetClass(),N)->SetPropertyValue_InContainer(O,V);}
 bool Flag(UObject* O,const TCHAR* N){return FindFProperty<FBoolProperty>(O->GetClass(),N)->GetPropertyValue_InContainer(O);}
