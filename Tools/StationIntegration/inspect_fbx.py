@@ -1,6 +1,8 @@
 """Read FBX binary metadata without altering the supplied files."""
 import array
+import collections
 import json
+import math
 import struct
 import sys
 import zlib
@@ -75,6 +77,61 @@ def properties(n):
     return result
 
 
+def topology(vertices, indices):
+    """Check original control-point topology; opposite winding is relative to the majority."""
+    points = list(zip(vertices[::3], vertices[1::3], vertices[2::3]))
+    faces, face = [], []
+    for index in indices:
+        face.append(-index - 1 if index < 0 else index)
+        if index < 0:
+            faces.append(face)
+            face = []
+    valid = not face and all(len(f) >= 3 and all(0 <= i < len(points) for i in f) for f in faces)
+    result = {'finite_vertices': all(math.isfinite(x) for x in vertices), 'valid_polygon_indices': valid}
+    if not valid or not result['finite_vertices']:
+        return result
+    result['triangles'] = sum(len(f) - 2 for f in faces)
+    result['ngons'] = sum(len(f) > 4 for f in faces)
+    coincident = collections.Counter(tuple(sorted(tuple(round(x, 8) for x in points[i]) for i in f)) for f in faces)
+    result['coincident_polygon_extras'] = sum(n - 1 for n in coincident.values())
+    parents = list(range(len(points)))
+
+    def root(i):
+        while parents[i] != i:
+            parents[i] = parents[parents[i]]
+            i = parents[i]
+        return i
+
+    for f in faces:
+        for i in f[1:]:
+            parents[root(i)] = root(f[0])
+    shells = collections.defaultdict(list)
+    for f in faces:
+        shells[root(f[0])].append(f)
+    volumes, boundary, nonmanifold, inconsistent = [], 0, 0, 0
+    for shell in shells.values():
+        edges, volume = collections.defaultdict(list), 0.0
+        for f in shell:
+            for i, j in zip(f, f[1:] + f[:1]):
+                edges[tuple(sorted((i, j)))].append(1 if i < j else -1)
+            x = points[f[0]]
+            for i, j in zip(f[1:-1], f[2:]):
+                y, z = points[i], points[j]
+                volume += (x[0] * (y[1]*z[2] - y[2]*z[1]) + x[1] * (y[2]*z[0] - y[0]*z[2]) + x[2] * (y[0]*z[1] - y[1]*z[0])) / 6
+        boundary += sum(len(e) == 1 for e in edges.values())
+        nonmanifold += sum(len(e) > 2 for e in edges.values())
+        inconsistent += sum(len(e) == 2 and e[0] == e[1] for e in edges.values())
+        if all(len(e) == 2 for e in edges.values()):
+            volumes.append(volume)
+    positive = sum(v > 1e-12 for v in volumes)
+    negative = sum(v < -1e-12 for v in volumes)
+    result.update(connected_shells=len(shells), closed_shells=len(volumes),
+                  opposite_winding_closed_shells=min(positive, negative),
+                  boundary_edges=boundary, nonmanifold_edges=nonmanifold,
+                  inconsistent_edge_winding=inconsistent)
+    return result
+
+
 def summarize(path):
     version, roots = read_fbx(path)
     objects = next(n for n in roots if n['name'] == 'Objects')['children']
@@ -90,10 +147,12 @@ def summarize(path):
             entry['fields'] = {c['name']: c['values'] for c in obj['children'] if c['name'] != 'Properties70'}
             result['textures'].append(entry)
         if kind == 'Geometry':
+            arrays = {}
             for key in ('Vertices', 'PolygonVertexIndex'):
                 arr = children(obj, key)
                 if arr:
                     vals = arr[0]['values'][0]
+                    arrays[key] = vals
                     if key == 'Vertices':
                         entry['vertices'] = len(vals) // 3
                         entry['bounds'] = [[min(vals[i::3]), max(vals[i::3])] for i in range(3)]
@@ -101,6 +160,8 @@ def summarize(path):
             entry['uv_layers'] = len(children(obj, 'LayerElementUV'))
             entry['color_layers'] = len(children(obj, 'LayerElementColor'))
             entry['normals'] = len(children(obj, 'LayerElementNormal'))
+            if 'Vertices' in arrays and 'PolygonVertexIndex' in arrays:
+                entry.update(topology(arrays['Vertices'], arrays['PolygonVertexIndex']))
             result['geometry'].append(entry)
     return result
 
