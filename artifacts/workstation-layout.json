@@ -1,12 +1,52 @@
 {
+  "surface_contacts": [
+    {
+      "mesh": "SM_Med_PC_Mouse",
+      "bottom_cm": 89.675685885,
+      "surface_cm": 89.655685885,
+      "gap_cm": 0.01999999999999602
+    },
+    {
+      "mesh": "SM_Headset_643eb9",
+      "bottom_cm": 89.675685885,
+      "surface_cm": 89.655685885,
+      "gap_cm": 0.01999999999999602
+    },
+    {
+      "mesh": "SM_single_spiral_notepad_c51708",
+      "bottom_cm": 89.675685885,
+      "surface_cm": 89.655685885,
+      "gap_cm": 0.01999999999999602
+    },
+    {
+      "mesh": "SM_television_2_32fe98",
+      "bottom_cm": 89.67568588499998,
+      "surface_cm": 89.655685885,
+      "gap_cm": 0.01999999999998181
+    },
+    {
+      "mesh": "SM_KeyboardCC0",
+      "bottom_cm": 89.675685885,
+      "surface_cm": 89.655685885,
+      "gap_cm": 0.01999999999999602
+    }
+  ],
+  "well_floor_cm": 96.883334591144,
+  "cassette_visual_bottom_offset_cm": -1.9258865506292722,
+  "cassette_socket_relative_z": 13.528973989801537,
+  "cassette_tray_relative_z": 2.921684380813759,
+  "central_temperature_kelvin": 3300,
+  "system_unit_removed": true,
+  "computer_top_width_cm": 100.15,
+  "computer_top_front_y_cm": 255,
   "radio_body_centre_cm": [
-    498.0000000000005,
+    498.00000000000074,
     404.00000000000006,
     107.0
   ],
   "deck_body_centre_cm": [
-    414.00000000000205,
-    402.0000000000005,
+    414.00000000000296,
+    402.00000000000074,
     94.00000000000001
   ],
   "lamp_temperature_kelvin": 2900,
@@ -14,14 +54,14 @@
   "lamp_radius_cm": 100,
   "prop_actor_positions": {
     "SM_Headset_643eb9": [
-      460.0,
-      327.0,
-      92.0
+      503.0,
+      273.0,
+      93.48885727171876
     ],
     "SM_single_spiral_notepad_c51708": [
-      440.0,
-      360.0,
-      91.13720454
+      478.0,
+      345.0,
+      90.75375449900604
     ],
     "SM_pencil_holder": [
       422.0,
@@ -36,5 +76,29 @@
   },
   "overview_height_cm": 137.31442656,
   "manual_radio_widget_layout": "preserved",
-  "deck_label_emissive_multiplier": 0.07
+  "ceiling_fixture_material": "/Game/RoomArt/Materials/M_RoomLampHousing",
+  "cassette_seated_bottom_cm": 96.908335,
+  "cassette_seated_top_cm": 98.112854,
+  "cassette_cover_bottom_cm": 98.224553,
+  "computer_top_depth_cm": 118.75,
+  "verification": {
+    "physical_contact_insertion_ejection": {
+      "passed": 14,
+      "failed": 0
+    },
+    "cassette_motion_save_load": {
+      "passed": 29,
+      "failed": 0
+    },
+    "room_asset_checks": {
+      "passed": 60,
+      "failed": 0
+    },
+    "screenshots_visually_reviewed": [
+      "computer-layout.png",
+      "cassette-seated.png",
+      "room-overview.png",
+      "room-reverse.png"
+    ]
+  }
 }

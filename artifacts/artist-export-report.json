@@ -11,5 +11,25 @@
   "fbx_files_parsed": 50,
   "fbx_geometry_blocks": 50,
   "all_meshes_have_uv": true,
-  "reference_has_instrument_component_geometry": true
+  "reference_has_instrument_component_geometry": true,
+  "furniture_update": {
+    "folder": "DEAD_AIR_3D_ARTIST/Updates/DeskFit",
+    "original_models_and_textures_preserved": true,
+    "files": [
+      {
+        "file": "Table_Wider.fbx",
+        "bytes": 22080,
+        "geometry_count": 1,
+        "uv_present": true,
+        "sha256": "7676bdce0b07647171cb3e2099cb4a03e9aba5d72270c42b03b45301c9dd58ab"
+      },
+      {
+        "file": "Reference_Room.fbx",
+        "bytes": 11909280,
+        "geometry_count": 49,
+        "uv_present": true,
+        "sha256": "da0d16d5a58fe4d57da1249c057711613cd738c375de24491209f1e86538bf2a"
+      }
+    ]
+  }
 }

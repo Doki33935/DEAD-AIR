@@ -171,6 +171,7 @@ void TextReturn(UWidgetBlueprint* B,FName Name,TFunction<UEdGraphPin*(UEdGraph*)
 #include "ModelPreparation.inl"
 #include "InteractionRefactor.inl"
 #include "InteractionVerify.inl"
+#include "FurnitureFit.inl"
 class FRadioBuilderModule : public IModuleInterface {
 public:
  void StartupModule() override {
@@ -179,6 +180,9 @@ public:
   auto Check=[](TFunction<bool()> Action){FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Action](float){return Action();}),.05f);};
   if(Param(TEXT("InteractionRefactor")))Once([](){InteractionRefactor::Build();});
   if(Param(TEXT("PrepareModels")))Once([](){ModelPreparation::Keyboard();ModelPreparation::Dish();});
+  if(Param(TEXT("FurnitureWidenTop")))Once([](){FurnitureFit::WidenTop();});
+  if(Param(TEXT("FurnitureSeatAudit")))Check([](){return FurnitureFit::SeatAudit();});
+  if(Param(TEXT("FurnitureGeometryAudit")))Once([](){FurnitureFit::Audit();});
   if(Param(TEXT("ProjectAudit")))Once([](){ProjectMaintenance::Audit();});
   if(Param(TEXT("TidyInteractionGraphs")))Once([](){ProjectMaintenance::Tidy();});
   if(Param(TEXT("RoomRecoverTextures")))Once([](){RoomBridge::RecoverTextures();});

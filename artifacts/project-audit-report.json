@@ -1126,5 +1126,48 @@
       "exit_code": 0
     }
   ],
-  "pak_has_removed_template_folders": false
+  "pak_has_removed_template_folders": false,
+  "baseline_verification_commit": "ca337b98861728bd416b50636862709afa50a3ed",
+  "furniture_revision": {
+    "scope": [
+      "system unit removed from both scenes",
+      "computer tabletop widened without leg/UV changes",
+      "five props supported by real tabletop",
+      "cassette seated below cover and still clickable",
+      "3300 K dim ceiling bulb and dark fixture material"
+    ],
+    "editor_tool_build": "success",
+    "pie_checks": {
+      "furniture_fit": {
+        "passed": 14,
+        "failed": 0
+      },
+      "cassette_motion_save_load": {
+        "passed": 29,
+        "failed": 0
+      }
+    },
+    "asset_checks": {
+      "passed": 60,
+      "failed": 0
+    },
+    "windows_development_cook": "success",
+    "material_compile_warnings": 0,
+    "package_launches": [
+      {
+        "map": "/Game/UI/MainMenuMap",
+        "seconds": 12,
+        "exit_code": 0
+      },
+      {
+        "map": "/Game/StationIntegration/StationIntegrationMap",
+        "seconds": 12,
+        "exit_code": 0
+      }
+    ],
+    "artist_update": "DEAD_AIR_3D_ARTIST/Updates/DeskFit",
+    "original_artist_models_and_textures_preserved": true,
+    "story_playthrough": false,
+    "other_pc_test": false
+  }
 }
